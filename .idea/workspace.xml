@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="e19db0f1-21e0-43c1-975e-3c7ead81798a" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/Components/Navbar.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/react-project.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/react-project.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/favicon.ico" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/logo192.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/logo512.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/manifest.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/robots.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.test.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/logo.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/reportWebVitals.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/setupTests.js" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings">
+    <execution />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2Oatx0H4XfWQykSu1AyvBeeDEMI" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;F:/react/react-project&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="F:\react-project\src\pages" />
+    </key>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="e19db0f1-21e0-43c1-975e-3c7ead81798a" name="Changes" comment="" />
+      <created>1681810808232</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1681810808232</updated>
+      <workItem from="1681810828419" duration="4342000" />
+      <workItem from="1681826075424" duration="1556000" />
+      <workItem from="1681951428479" duration="26106000" />
+      <workItem from="1681992664667" duration="3503000" />
+      <workItem from="1681997367334" duration="641000" />
+      <workItem from="1682041949257" duration="604000" />
+      <workItem from="1682046396195" duration="18286000" />
+      <workItem from="1682074294858" duration="3168000" />
+      <workItem from="1682083551008" duration="802000" />
+      <workItem from="1682139167316" duration="14685000" />
+      <workItem from="1682169207789" duration="4942000" />
+      <workItem from="1682247977269" duration="3777000" />
+      <workItem from="1682262827150" duration="1702000" />
+      <workItem from="1682337366633" duration="5019000" />
+      <workItem from="1682346645535" duration="10263000" />
+      <workItem from="1682411966088" duration="1908000" />
+      <workItem from="1682427365560" duration="4158000" />
+      <workItem from="1682514130910" duration="1233000" />
+      <workItem from="1682518648078" duration="5335000" />
+      <workItem from="1682582778402" duration="961000" />
+      <workItem from="1682588704858" duration="3713000" />
+      <workItem from="1682601056075" duration="2238000" />
+      <workItem from="1682607755864" duration="1021000" />
+      <workItem from="1683013808092" duration="1181000" />
+      <workItem from="1683019590829" duration="6374000" />
+      <workItem from="1683102670056" duration="4342000" />
+      <workItem from="1683125385633" duration="3707000" />
+      <workItem from="1683176662179" duration="13058000" />
+      <workItem from="1683209185162" duration="1023000" />
+      <workItem from="1683291629356" duration="861000" />
+      <workItem from="1683292953309" duration="4665000" />
+      <workItem from="1683557718369" duration="5328000" />
+      <workItem from="1683592166499" duration="931000" />
+      <workItem from="1683608937234" duration="1680000" />
+      <workItem from="1683611803848" duration="1343000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>
