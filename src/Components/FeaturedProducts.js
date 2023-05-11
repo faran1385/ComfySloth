@@ -1,8 +1,10 @@
 import "bootstrap/dist/css/bootstrap.min.css"
 import "../index.css"
 import {FeaturedProduct} from "./FeaturedProduct";
+import {useGlobalContextAPI} from "../context";
 
 export function FeaturedProducts() {
+    const {featuredProduct}=useGlobalContextAPI()
     return (
         <div className={"w-100 py-5"} style={{backgroundColor: "#f1f5f8"}}>
             <div className={"bg-inherit"}>
@@ -15,9 +17,9 @@ export function FeaturedProducts() {
                 <div className={"pt-5"}>
                     <div className={"container"}>
                         <div className={"row"}>
-                            <FeaturedProduct/>
-                            <FeaturedProduct/>
-                            <FeaturedProduct/>
+                            {featuredProduct.map(product=>{
+                                return <FeaturedProduct key={product.id} productProperties={product}/>
+                            })}
                         </div>
                         <div className={"d-flex justify-content-center pt-4"}>
                             <button className={"btn shop-btn shadow text-white"}>ALL PRODUCTS</button>

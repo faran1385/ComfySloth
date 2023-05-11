@@ -12,7 +12,6 @@ export function Navbar() {
     // this function runs every time you hover or blur the links in the navbar in large screen
     // this function gets the width and event
     function changeUnderlineLinkStyle(width, event) {
-        console.log(event.target.getBoundingClientRect())
         linkUnderline.current.style.width = (width) + "px"
         linkUnderline.current.style.left = event.target.getBoundingClientRect().left + "px"
         linkUnderline.current.style.top = (event.target.getBoundingClientRect().top+event.target.getBoundingClientRect().height) + "px"
