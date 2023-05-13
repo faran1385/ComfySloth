@@ -13,7 +13,7 @@ export function HeroSection() {
                             doloremque possimus velit! Repudiandae nisi odit, aperiam odio ducimus, obcaecati libero et quia
                             tempora excepturi quis alias?
                         </p>
-                        <div>
+                        <div className={"d-flex justify-content-center justify-content-lg-start"}>
                             <button className={"shadow text-white shop-btn"}>SHOP NOW</button>
                         </div>
                     </div>
