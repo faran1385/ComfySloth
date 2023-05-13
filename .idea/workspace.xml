@@ -2,9 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e19db0f1-21e0-43c1-975e-3c7ead81798a" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/useFetch.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/context.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/context.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/Service.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Service.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -100,7 +99,8 @@
       <workItem from="1683796305719" duration="975000" />
       <workItem from="1683827241472" duration="1918000" />
       <workItem from="1683886174103" duration="4248000" />
-      <workItem from="1683953177892" duration="6986000" />
+      <workItem from="1683953177892" duration="7930000" />
+      <workItem from="1683967159565" duration="593000" />
     </task>
     <servers />
   </component>
