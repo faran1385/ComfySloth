@@ -6,7 +6,7 @@ import {useGlobalContextAPI} from "../context";
 export function FeaturedProducts() {
     const {featuredProduct}=useGlobalContextAPI()
     return (
-        <div className={"w-100 py-5"} style={{backgroundColor: "#f1f5f8"}}>
+        <div className={"w-100 py-5"} style={{backgroundColor: "#f1f5f8",marginTop:"14rem"}}>
             <div className={"bg-inherit"}>
                 <div>
                     <h1 className={"text-center"}>Featured Products</h1>
