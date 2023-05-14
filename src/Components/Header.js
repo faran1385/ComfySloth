@@ -6,7 +6,7 @@ import "bootstrap/dist/js/bootstrap.bundle"
 import "../index.css"
 import {useRef, useState} from "react";
 
-export function Navbar() {
+export function Header() {
     const linkUnderline = useRef('')
     //this function changes linkUnderline styles
     // this function runs every time you hover or blur the links in the navbar in large screen

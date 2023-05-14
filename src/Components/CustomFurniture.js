@@ -10,7 +10,7 @@ export function CustomFurniture() {
                         <h2 className={"text-lg-start text-center"}>Custom Furniture</h2>
                         <h2 className={"ps-lg-5 text-lg-start text-center"}>Built Only For You</h2>
                     </div>
-                    <div className={"col-lg-6"}>
+                    <div className={"col-lg-6 d-flex align-items-center"}>
                         <p className={"text-lg-start text-center"} style={{color: "#795744"}}>
                             Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe dolorum debitis consectetur
                             reprehenderit non aliquam voluptates dolore aut vero consequuntur.
@@ -18,7 +18,7 @@ export function CustomFurniture() {
                     </div>
                 </div>
                 <div className={"container"}>
-                    <div className={"row "}>
+                    <div className={"row"}>
                         <Service/>
                         <Service/>
                         <Service/>

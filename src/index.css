@@ -42,3 +42,11 @@
     border-radius: .9rem;
     background-color: #ab7a5f;
 }
+.email-button-submit-home{
+    background-color: #ab7a5f!important;
+    color: black;
+    transition: all ease-in 200ms;
+}
+.email-button-submit-home:hover{
+    color: white;
+}

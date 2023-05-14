@@ -20,7 +20,7 @@ export function FeaturedProduct(props){
                     <div className={"col-6"}>
                         <p style={{fontWeight:"400"}}>{name}</p>
                     </div>
-                    <div className={"col-2"}>
+                    <div className={"col-4"}>
                         <p style={{fontWeight:"400",color:"#ab7a5f"}} className={"text-end"}>${price}</p>
                     </div>
                 </div>

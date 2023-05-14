@@ -1,9 +1,8 @@
-import React, {useEffect, useState} from "react";
 import "../index.css"
-import {useGlobalContextAPI} from "../context";
 import {HeroSection} from "../Components/HeroSection";
 import {FeaturedProducts} from "../Components/FeaturedProducts";
 import {CustomFurniture} from "../Components/CustomFurniture";
+import {NewsLetter} from "../Components/NewsLetter";
 
 export function Home() {
     return (
@@ -11,6 +10,7 @@ export function Home() {
             <HeroSection/>
             <FeaturedProducts/>
             <CustomFurniture/>
+            <NewsLetter/>
         </>
     );
 }
