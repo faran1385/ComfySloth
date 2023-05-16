@@ -3,7 +3,14 @@
   <component name="ChangeListManager">
     <list default="true" id="e19db0f1-21e0-43c1-975e-3c7ead81798a" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/HeroSection.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/HeroSection.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/CustomFurniture.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/CustomFurniture.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/FeaturedProducts.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/FeaturedProducts.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/Service.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Service.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Reducer.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/context.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/context.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/data.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/NotFound.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/NotFound.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/SharedLayout.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/SharedLayout.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -102,7 +109,8 @@
       <workItem from="1683953177892" duration="7930000" />
       <workItem from="1683967159565" duration="2165000" />
       <workItem from="1684044107672" duration="5394000" />
-      <workItem from="1684062965139" duration="925000" />
+      <workItem from="1684062965139" duration="1228000" />
+      <workItem from="1684228939608" duration="5744000" />
     </task>
     <servers />
   </component>

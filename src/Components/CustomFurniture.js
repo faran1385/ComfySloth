@@ -1,6 +1,8 @@
 import {Service} from "./Service";
+import {useGlobalContextAPI} from "../context";
 
 export function CustomFurniture() {
+    const {services}=useGlobalContextAPI()
     return (
         <div className={"w-100 position-relative"} style={{background: "#eaded7"}}>
             <div className={"bg-white w-100 d-lg-block d-none start-0 position-absolute h-50"} style={{top:"71%"}}></div>
@@ -19,9 +21,9 @@ export function CustomFurniture() {
                 </div>
                 <div className={"container"}>
                     <div className={"row"}>
-                        <Service/>
-                        <Service/>
-                        <Service/>
+                        {services.map((service)=>{
+                            return <Service key={service.id} serviceProperties={service}/>
+                        })}
                     </div>
                 </div>
             </div>
