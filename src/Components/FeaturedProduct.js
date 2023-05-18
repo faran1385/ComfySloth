@@ -3,7 +3,7 @@ import {useGlobalContextAPI} from "../context";
 import {BiSearchAlt2} from "react-icons/bi"
 import {useState} from "react";
 export function FeaturedProduct(props){
-    const {name,id,price,image}=props.productProperties
+    const {name,price,image}=props.productProperties
     const [featuredProductUnHovered,setFeaturedProductUnHovered]=useState(true)
     if(name){
         return (

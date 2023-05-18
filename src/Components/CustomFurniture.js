@@ -21,8 +21,8 @@ export function CustomFurniture() {
                 </div>
                 <div className={"container"}>
                     <div className={"row"}>
-                        {services.map((service)=>{
-                            return <Service key={service.id} serviceProperties={service}/>
+                        {services.map((service,index)=>{
+                            return <Service key={index} serviceProperties={service}/>
                         })}
                     </div>
                 </div>

@@ -1,16 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e19db0f1-21e0-43c1-975e-3c7ead81798a" name="Changes" comment="">
+    <list default="true" id="cbc95a15-3a3c-4cda-8b3b-94d160829a50" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Components/CustomFurniture.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/CustomFurniture.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/FeaturedProduct.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/FeaturedProduct.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Components/FeaturedProducts.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/FeaturedProducts.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Components/Service.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Service.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Reducer.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/context.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/context.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/data.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/NotFound.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/NotFound.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/SharedLayout.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/SharedLayout.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/useFetch.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/useFetch.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,7 +32,7 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="ProjectId" id="2Oatx0H4XfWQykSu1AyvBeeDEMI" />
+  <component name="ProjectId" id="2PvQbIRWm3kAveWmtlpF0CYr9pW" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -51,81 +50,22 @@
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
-  <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="F:\react-project\src\pages" />
-    </key>
-  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="e19db0f1-21e0-43c1-975e-3c7ead81798a" name="Changes" comment="" />
-      <created>1681810808232</created>
+      <changelist id="cbc95a15-3a3c-4cda-8b3b-94d160829a50" name="Changes" comment="" />
+      <created>1684335147149</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1681810808232</updated>
-      <workItem from="1681810828419" duration="4342000" />
-      <workItem from="1681826075424" duration="1556000" />
-      <workItem from="1681951428479" duration="26106000" />
-      <workItem from="1681992664667" duration="3503000" />
-      <workItem from="1681997367334" duration="641000" />
-      <workItem from="1682041949257" duration="604000" />
-      <workItem from="1682046396195" duration="18286000" />
-      <workItem from="1682074294858" duration="3168000" />
-      <workItem from="1682083551008" duration="802000" />
-      <workItem from="1682139167316" duration="14685000" />
-      <workItem from="1682169207789" duration="4942000" />
-      <workItem from="1682247977269" duration="3777000" />
-      <workItem from="1682262827150" duration="1702000" />
-      <workItem from="1682337366633" duration="5019000" />
-      <workItem from="1682346645535" duration="10263000" />
-      <workItem from="1682411966088" duration="1908000" />
-      <workItem from="1682427365560" duration="4158000" />
-      <workItem from="1682514130910" duration="1233000" />
-      <workItem from="1682518648078" duration="5335000" />
-      <workItem from="1682582778402" duration="961000" />
-      <workItem from="1682588704858" duration="3713000" />
-      <workItem from="1682601056075" duration="2238000" />
-      <workItem from="1682607755864" duration="1021000" />
-      <workItem from="1683013808092" duration="1181000" />
-      <workItem from="1683019590829" duration="6374000" />
-      <workItem from="1683102670056" duration="4342000" />
-      <workItem from="1683125385633" duration="3707000" />
-      <workItem from="1683176662179" duration="13058000" />
-      <workItem from="1683209185162" duration="1023000" />
-      <workItem from="1683291629356" duration="861000" />
-      <workItem from="1683292953309" duration="4665000" />
-      <workItem from="1683557718369" duration="5328000" />
-      <workItem from="1683592166499" duration="931000" />
-      <workItem from="1683608937234" duration="1680000" />
-      <workItem from="1683611803848" duration="1343000" />
-      <workItem from="1683623890923" duration="1177000" />
-      <workItem from="1683712661491" duration="5092000" />
-      <workItem from="1683781332238" duration="2118000" />
-      <workItem from="1683784032790" duration="2693000" />
-      <workItem from="1683796305719" duration="975000" />
-      <workItem from="1683827241472" duration="1918000" />
-      <workItem from="1683886174103" duration="4248000" />
-      <workItem from="1683953177892" duration="7930000" />
-      <workItem from="1683967159565" duration="2165000" />
-      <workItem from="1684044107672" duration="5394000" />
-      <workItem from="1684062965139" duration="1228000" />
-      <workItem from="1684228939608" duration="5744000" />
+      <updated>1684335147149</updated>
+      <workItem from="1684335170234" duration="169000" />
+      <workItem from="1684335346456" duration="1409000" />
+      <workItem from="1684382669207" duration="1006000" />
+      <workItem from="1684388758388" duration="2228000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
-  </component>
-  <component name="Vcs.Log.Tabs.Properties">
-    <option name="TAB_STATES">
-      <map>
-        <entry key="MAIN">
-          <value>
-            <State />
-          </value>
-        </entry>
-      </map>
-    </option>
   </component>
 </project>
