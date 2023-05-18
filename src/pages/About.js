@@ -2,7 +2,7 @@ export function About() {
     return (
         <div className={"container mt-5 mb-5"}>
             <div className={"row pt-5"}>
-                <div className={"col-lg-6 mb-lg-0 mb-5 d-flex justify-content-center"}>
+                <div className={"col-lg-6 d-none  mb-5 d-lg-flex justify-content-center"}>
                     <img src={"https://react-course-comfy-sloth-store.netlify.app/static/media/hero-bcg.a876f19f6786a3aca992.jpeg"}
                     style={{width:"-webkit-fill-available",height:"30rem"}}
                          className={"rounded"}/>
