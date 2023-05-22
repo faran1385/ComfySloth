@@ -2,9 +2,10 @@ import "bootstrap/dist/css/bootstrap.min.css"
 import "../index.css"
 import {FeaturedProduct} from "./FeaturedProduct";
 import {useGlobalContextAPI} from "../context";
+import {Link} from "react-router-dom";
 
 export function FeaturedProducts() {
-    const {featuredProduct}=useGlobalContextAPI()
+    const {featuredProducts}=useGlobalContextAPI()
     return (
         <div className={"w-100 py-5"} style={{backgroundColor: "#f1f5f8",marginTop:"14rem"}}>
             <div className={"bg-inherit"}>
@@ -17,14 +18,14 @@ export function FeaturedProducts() {
                 <div className={"pt-5"}>
                     <div className={"container"}>
                         <div className={"row"}>
-                            {featuredProduct.map((product,index)=>{
+                            {featuredProducts.map((product,index)=>{
                                 //this component renders the products preview section
                                 //this component gets product information that comes from featured products in contex file
                                 return <FeaturedProduct key={index} productProperties={product}/>
                             })}
                         </div>
                         <div className={"d-flex justify-content-center pt-4"}>
-                            <button className={"btn shop-btn shadow text-white"}>ALL PRODUCTS</button>
+                            <Link to={'/products'} className={"btn shop-btn shadow text-white"}>ALL PRODUCTS</Link>
                         </div>
                     </div>
                 </div>

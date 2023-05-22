@@ -6,8 +6,8 @@ export function HeroSection() {
             <div className={"container"} style={{height:"max-content",marginTop:"7rem"}}>
                 <div className={"row"}>
                     <div className={"col-lg-6 d-flex mt-5 mt-lg-0 justify-content-center flex-column"}>
-                        <h1 className={"fw-bold text-md-start text-center"}>Design Your</h1>
-                        <h1 className={"fw-bold text-md-start text-center"}>Comfort Zone</h1>
+                        <h1 className={"fw-bold text-lg-start text-center"}>Design Your</h1>
+                        <h1 className={"fw-bold text-lg-start text-center"}>Comfort Zone</h1>
                         <p className={"mt-5 lh-lg text-center text-lg-start  text-muted fs-4"}>
                             Lorem ipsum, dolor sit amet consectetur adipisicing elit. Iusto, at sed omnis corporis
                             doloremque possimus velit! Repudiandae nisi odit, aperiam odio ducimus, obcaecati libero et quia

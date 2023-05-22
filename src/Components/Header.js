@@ -12,10 +12,11 @@ export function Header() {
     // this function runs every time you hover or blur the links in the navbar in large screen
     // this function gets the width and event
     function offcanvasClose(){
-            if(window.innerWidth<992){
+        if(window.innerWidth<992){
                 let bootstrapOffcanvas = Offcanvas.getInstance('.offcanvas-lg');
                 bootstrapOffcanvas.hide();
         }
+        linkUnderline.current.style.width='0px'
     }
     function changeUnderlineLinkStyle(width, event) {
         linkUnderline.current.style.width = (width) + "px"
