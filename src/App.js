@@ -4,6 +4,7 @@ import {SharedLayout} from "./pages/SharedLayout";
 import {NotFound} from "./pages/NotFound";
 import {About} from "./pages/About";
 import {AppProvider} from "./context";
+import {Products} from "./pages/Products";
 function App() {
     return (
         <BrowserRouter>
@@ -13,7 +14,7 @@ function App() {
                         <Route index element={<Home/>}/>
                         <Route path={"about"} element={<About/>}/>
                         <Route path={"cart"}/>
-                        <Route path={"products"}/>
+                        <Route path={"products"} element={<Products/>}/>
                         <Route path={"*"} element={<NotFound/>}/>
                     </Route>
                 </Routes>

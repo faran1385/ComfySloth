@@ -5,7 +5,6 @@ import {useState} from "react";
 export function FeaturedProduct(props){
     const {name,price,image_one}=props.productProperties
     const [featuredProductUnHovered,setFeaturedProductUnHovered]=useState(true)
-    console.log(name);
     if(name){
         return (
             <div className={"col-lg-4 mb-4"}>

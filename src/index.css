@@ -50,3 +50,53 @@
 .email-button-submit-home:hover{
     color: white;
 }
+.category-name ,.company-name,.color{
+    color: rgba(33, 37, 41, 0.50);
+}
+.category-name:hover,.company-name:hover{
+    color:#333;
+}
+.category-name.active,.company-name.active,.color.active{
+    color:#333!important;
+}
+.radio-container{
+    display: block;
+    position: relative;
+    cursor: pointer;
+    user-select: none;
+}
+.radio-container input{
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    width: 0;
+    height: 0;
+}
+.radio-container span{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 1rem;
+    height: 1rem;
+    border-radius: 50%;
+    transition: all ease-in 200ms;
+    opacity: 50%;
+    padding: ;
+}
+.radio-container:hover input ~ span {
+    opacity: 1;
+    scale: 1.1;
+}
+.radio-container input ~ span svg{
+    display: none;
+}
+.radio-container input:checked ~ span {
+    opacity: 1;
+    scale: 1.1;
+}
+.radio-container input:checked ~ span svg{
+    display: block;
+}
+.cursor-pointer{
+    cursor: pointer!important;
+}
