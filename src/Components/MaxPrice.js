@@ -1,17 +1,27 @@
 import {useGlobalContextAPI} from "../context";
 import {FilltersLoading} from "./FilltersLoading";
 
-export function MaxPrice(props){
-    const {maxPrice,minPrice}=props
-    const {price,setPrice}=useGlobalContextAPI()
-    if(!maxPrice||!minPrice){
+export function MaxPrice(props) {
+    const {maxPrice, minPrice} = props
+
+    //getting filters value and the function that change the value of filters (setActive)
+    //also we are getting price the value of price input and the function that changes the value(setPrice)
+    const {filteredProduct, setActive} = useGlobalContextAPI()
+    //you change the value of filter by clicking on filter
+
+    // if prices was not load it renders the loading
+    if (!maxPrice || !minPrice) {
         return <FilltersLoading/>
     }
-    return(
+
+    return (
         <ul>
-            <p className={""}>${price===0?minPrice.toLocaleString():Number(price).toLocaleString()}</p>
-            <input  value={price} onChange={(event) => setPrice(event.target.value)}
-                    type={"range"} min={minPrice} max={maxPrice}/>
+            <p className={""}>${filteredProduct.price === 0 ? minPrice.toLocaleString() : Number(filteredProduct.price).toLocaleString()}</p>
+            <input value={filteredProduct.price} onChange={(event) => {
+                //changing the filter every time price changes
+                setActive("price", event.target.value)
+            }}
+                   type={"range"} min={minPrice} max={maxPrice}/>
         </ul>
     );
 }

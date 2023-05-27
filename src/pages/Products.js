@@ -1,12 +1,14 @@
 import {Filters} from "../Components/filters";
 import {SortBy} from "../Components/SortBy";
+import {ProductList} from "../Components/ProductList";
 
 export function Products(){
     return(
         <div className={"container-lg mt-5"}>
             <div className={"row"}>
-                <Filters/>
                 <SortBy/>
+                <Filters/>
+                <ProductList/>
             </div>
         </div>
     );

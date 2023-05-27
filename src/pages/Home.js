@@ -1,6 +1,6 @@
 import "../index.css"
 import {HeroSection} from "../Components/HeroSection";
-import {FeaturedProducts} from "../Components/FeaturedProducts";
+import {FeaturedProductList} from "../Components/FeaturedProductList";
 import {CustomFurniture} from "../Components/CustomFurniture";
 import {NewsLetter} from "../Components/NewsLetter";
 
@@ -8,7 +8,7 @@ export function Home() {
     return (
         <>
             <HeroSection/>
-            <FeaturedProducts/>
+            <FeaturedProductList/>
             <CustomFurniture/>
             <NewsLetter/>
         </>

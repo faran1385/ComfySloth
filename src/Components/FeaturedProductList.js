@@ -4,7 +4,7 @@ import {FeaturedProduct} from "./FeaturedProduct";
 import {useGlobalContextAPI} from "../context";
 import {Link} from "react-router-dom";
 
-export function FeaturedProducts() {
+export function FeaturedProductList() {
     const {featuredProducts}=useGlobalContextAPI()
     return (
         <div className={"w-100 py-5"} style={{backgroundColor: "#f1f5f8",marginTop:"14rem"}}>

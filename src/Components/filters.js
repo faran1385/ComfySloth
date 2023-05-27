@@ -7,7 +7,10 @@ import {ColorList} from "./ColorList";
 import {MaxPrice} from "./MaxPrice";
 
 export function Filters() {
-    const {filters} = useGlobalContextAPI()
+    //getting function that change the value of product filters (setActive)
+    //setFilteredProduct is for clear all filters that INITIAL_VALUE_OF_FILTERED_PRODUCTS is its argument
+    const {filters,setActive,INITIAL_VALUE_OF_FILTERED_PRODUCTS,setFilteredProduct} = useGlobalContextAPI()
+    //these are for filter section
     const {category, color, company, maxprice, lowprice} = filters
     return (<div className={"col-lg-2"}>
             <div className="offcanvas-lg offcanvas-start" tabIndex="-1" id="offcanvasExample"
@@ -17,10 +20,8 @@ export function Filters() {
                     <button type="button" className="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                 </div>
                 <div className="offcanvas-body">
-                    <div>
+                    <div className={"w-100"}>
                         <div>
-                            <input className={"form-control border-0"} style={{background: "#f1f5f8"}}
-                                   placeholder={'Search'}/>
                             <div className="accordion mt-5" id="accordionPanel">
                                 <div className="accordion-item border-0 border-bottom">
                                     <h2 className="accordion-header">
@@ -86,10 +87,11 @@ export function Filters() {
                         </div>
                         <div className={"d-flex justify-content-between p-3"}>
                             <span>Free Shopping</span>
-                            <input className={"form-check-input"} style={{width: "1rem"}} type={"checkbox"}/>
+                            <input onChange={(event)=>setActive("freeShopping",event.target.checked)} className={"form-check-input"} style={{width: "1rem"}} type={"checkbox"}/>
                         </div>
                         <div className={"d-grid px-3  mt-4"}>
-                            <button className={"btn btn-danger"}>clear filters</button>
+                            <button className={"btn btn-danger"}
+                            onClick={()=>setFilteredProduct(INITIAL_VALUE_OF_FILTERED_PRODUCTS)}>clear filters</button>
                         </div>
                     </div>
                 </div>

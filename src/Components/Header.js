@@ -6,22 +6,27 @@ import "bootstrap/dist/css/bootstrap.min.css"
 import "../index.css"
 import {useRef, useState} from "react";
 import {Offcanvas} from "bootstrap/dist/js/bootstrap.min"
+import {useGlobalContextAPI} from "../context";
+
 export function Header() {
+    //getting icon of site
+    const {siteImages} = useGlobalContextAPI()
     const linkUnderline = useRef('')
     //this function changes linkUnderline styles
     // this function runs every time you hover or blur the links in the navbar in large screen
     // this function gets the width and event
-    function offcanvasClose(){
-        if(window.innerWidth<992){
-                let bootstrapOffcanvas = Offcanvas.getInstance('.offcanvas-lg');
-                bootstrapOffcanvas.hide();
+    function offcanvasClose() {
+        if (window.innerWidth < 992) {
+            let bootstrapOffcanvas = Offcanvas.getInstance('.offcanvas-lg');
+            bootstrapOffcanvas.hide();
         }
-        linkUnderline.current.style.width='0px'
+        linkUnderline.current.style.width = '0px'
     }
+
     function changeUnderlineLinkStyle(width, event) {
         linkUnderline.current.style.width = (width) + "px"
         linkUnderline.current.style.left = event.target.getBoundingClientRect().left + "px"
-        linkUnderline.current.style.top = (event.target.getBoundingClientRect().top+event.target.getBoundingClientRect().height) + "px"
+        linkUnderline.current.style.top = (event.target.getBoundingClientRect().top + event.target.getBoundingClientRect().height) + "px"
     }
 
     return (
@@ -31,9 +36,10 @@ export function Header() {
                  className={"link-underline d-lg-block d-none position-absolute"}></div>
             <div className={"container"}>
                 <nav className={"navbar navbar-expand-lg"}>
-                    <img style={{width: "10rem"}}
-                         className={"navbar-brand"}
-                         src="https://react-course-comfy-sloth-store.netlify.app/static/media/logo.221f6b13e6eaaad5828372464f73a1a4.svg"/>
+                    {siteImages ? (<img style={{width: "10rem"}}
+                                        className={"navbar-brand"}
+                                        src={`http://localhost:8000${siteImages[0].icon}`}/>) :
+                        (<div className={"navbar-brand"} style={{width: "10rem"}}></div>)}
                     <button className="border-0 fs-3 navbar-toggler" type="button" data-bs-toggle="offcanvas"
                             data-bs-target="#offcanvasEnd">
                         <span className="navbar-toggler-icon"></span>
@@ -51,7 +57,7 @@ export function Header() {
                                 <ul className="navbar-nav w-100 row flex-row justify-content-lg-center">
                                     <li className="nav-item col-lg-auto col-6">
                                         <Link onClick={offcanvasClose}
-                                            onMouseLeave={(e) => changeUnderlineLinkStyle(0, e)}
+                                              onMouseLeave={(e) => changeUnderlineLinkStyle(0, e)}
                                               onMouseEnter={(e) => changeUnderlineLinkStyle(e.target.getBoundingClientRect().width, e)}
                                               to={"/"} className={"text-decoration-none nav-link me-2 active"}>
                                             Home
@@ -59,7 +65,7 @@ export function Header() {
                                     </li>
                                     <li className="nav-item col-lg-auto col-6">
                                         <Link onClick={offcanvasClose}
-                                            onMouseLeave={(e) => changeUnderlineLinkStyle(0, e)}
+                                              onMouseLeave={(e) => changeUnderlineLinkStyle(0, e)}
                                               onMouseEnter={(e) => changeUnderlineLinkStyle(e.target.getBoundingClientRect().width, e)}
                                               to={"about"} className={"text-decoration-none nav-link me-2"}>
                                             About
@@ -67,7 +73,7 @@ export function Header() {
                                     </li>
                                     <li className="nav-item col-lg-auto col-6">
                                         <Link onClick={offcanvasClose}
-                                            onMouseLeave={(e) => changeUnderlineLinkStyle(0, e)}
+                                              onMouseLeave={(e) => changeUnderlineLinkStyle(0, e)}
                                               onMouseEnter={(e) => changeUnderlineLinkStyle(e.target.getBoundingClientRect().width, e)}
                                               to={"products"} className={"text-decoration-none nav-link me-2"}>
                                             Products
@@ -90,7 +96,7 @@ export function Header() {
                                                     width: "1rem",
                                                     top: "-20%",
                                                     right: "-20%",
-                                                    fontSize:"small"
+                                                    fontSize: "small"
                                                 }}>0</span>
                                             <RiShoppingCart2Fill className={"fs-4"}/>
                                         </span>
