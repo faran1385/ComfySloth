@@ -1,25 +1,43 @@
+import {useGlobalContextAPI} from "../context";
+
 export function About() {
+    const {aboutInfo} = useGlobalContextAPI()
+    //checking if about infos still not recived.it renders the preloading
+    if (!aboutInfo[0]) {
+        return <div className={"container mt-5 mb-5"}>
+            <div className={"row pt-5"}>
+                <div className={"col-lg-6 d-none  mb-5 d-lg-flex justify-content-center"}>
+                    <div style={{width: "-webkit-fill-available", height: "35rem"}}
+                         className={"rounded placeholder placeholder-wave"}/>
+                </div>
+                <div className={"ps-lg-5 col-lg-6 mb-lg-0 mb-5 d-flex align-items-lg-start flex-column align-items-center"}>
+                    <div className={"row w-100  flex-column align-items-center align-items-lg-start"}>
+                        <div className={"col-4 placeholder placeholder-lg placeholder-wave mt-5 mb-5"}></div>
+                        <div className={"col-12 placeholder placeholder-wave mt-3"}></div>
+                        <div className={"col-12 placeholder placeholder-wave mt-3"}></div>
+                        <div className={"col-12 placeholder placeholder-wave mt-3"}></div>
+                        <div className={"col-12 placeholder placeholder-wave mt-3"}></div>
+                        <div className={"col-12 placeholder placeholder-wave mt-3"}></div>
+                        <div className={"col-12 placeholder placeholder-wave mt-3"}></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+    const {discription, img, title} = aboutInfo[0]
     return (
         <div className={"container mt-5 mb-5"}>
             <div className={"row pt-5"}>
                 <div className={"col-lg-6 d-none  mb-5 d-lg-flex justify-content-center"}>
-                    <img src={"https://react-course-comfy-sloth-store.netlify.app/static/media/hero-bcg.a876f19f6786a3aca992.jpeg"}
-                    style={{width:"-webkit-fill-available",height:"35rem"}}
+                    <img src={`http://localhost:8000${img}`}
+                         style={{width: "-webkit-fill-available", height: "35rem"}}
                          className={"rounded"}/>
                 </div>
-                <div className={"ps-lg-5 col-lg-6 mb-lg-0 mb-5 d-flex align-items-lg-start flex-column align-items-center"}>
-                    <h1>Our story</h1>
-                    <div style={{width:"6rem",backgroundColor:"#ab7a5f",height:"4px"}} className={"mb-4"}></div>
-                    <p className={"lh-lg text-lg-start text-center"} style={{color:"#617d98"}}>
-                        Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                        Fugiat accusantium sapiente tempora sed dolore esse deserunt e
-                        aque excepturi, delectus error accusamus vel eligendi, omnis beatae
-                        . Quisquam, dicta. Eos quod quisquam esse recusandae vitae neque dolore,
-                        obcaecati incidunt sequi blanditiis est exercitationem molestiae delectus
-                        saepe odio eligendi modi porro eaque in libero minus unde sapiente consectetur a
-                        rchitecto. Ullam rerum, nemo iste ex, eaque perspiciatis nisi, eum totam velit saepe
-                        sed quos similique amet. Ex, voluptate accusamus nesciunt totam vitae esse iste.
-                    </p>
+                <div
+                    className={"ps-lg-5 col-lg-6 mb-lg-0 mb-5 d-flex align-items-lg-start flex-column align-items-center"}>
+                    <h1>{title}</h1>
+                    <div style={{width: "6rem", backgroundColor: "#ab7a5f", height: "4px"}} className={"mb-4"}></div>
+                    <p className={"lh-lg text-lg-start text-center"} style={{color: "#617d98"}}>{discription}</p>
                 </div>
             </div>
         </div>

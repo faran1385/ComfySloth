@@ -3,12 +3,14 @@ import {useGlobalContextAPI} from "../context";
 import {BiSearchAlt2} from "react-icons/bi"
 import {useState} from "react";
 export function FeaturedProduct(props){
+    //a condition that define the cols of contaienr
+    const {isHome}=props
     const {name,price,image_one}=props.productProperties
     //rendering the products
     if(name){
         return (
-            <div className={"col-lg-4 mb-4"}>
-                <div className={"position-relative"}  style={{height:"14rem",cursor:"pointer"}}>
+            <div className={`${isHome?"col-lg-4 col-12":"col-xl-4 col-md-6 col-12"}  mb-4`}>
+                <div className={"position-relative"}  style={{height:"20rem",cursor:"pointer"}}>
                     <img  src={'http://localhost:8000'+image_one} className={"h-100 featured-product-img w-100 rounded-2"}/>
                     <div className={`product-image-backdrop`}
                     >
@@ -28,8 +30,8 @@ export function FeaturedProduct(props){
     }
     //if products was not load it renders loading
     return(
-        <div className={"col-lg-4 mb-4"}>
-            <div style={{height:"14rem"}} className={"w-100 placeholder placeholder-wave rounded-2"}></div>
+        <div className={`${isHome?"col-lg-4 col-12":"col-xl-4 col-md-6 col-12"}  mb-4`}>
+            <div style={{height:"20rem"}} className={"w-100 placeholder placeholder-wave rounded-2"}></div>
             <div className={"d-flex justify-content-between mt-3"}>
                 <div className={"col-4 placeholder placeholder-wave"}></div>
                 <div className={"col-2 placeholder placeholder-wave"}></div>

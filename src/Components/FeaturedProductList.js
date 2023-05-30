@@ -21,7 +21,7 @@ export function FeaturedProductList() {
                             {featuredProducts.map((product,index)=>{
                                 //this component renders the products preview section
                                 //this component gets product information that comes from featured products in contex file
-                                return <FeaturedProduct key={index} productProperties={product}/>
+                                return <FeaturedProduct isHome={true} key={index} productProperties={product}/>
                             })}
                         </div>
                         <div className={"d-flex justify-content-center pt-4"}>
