@@ -1,20 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="cbc95a15-3a3c-4cda-8b3b-94d160829a50" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/FeaturedProduct.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/FeaturedProduct.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/FeaturedProductList.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/FeaturedProductList.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/MaxPrice.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/MaxPrice.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/ProductColor.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/ProductColor.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/ProductList.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/ProductList.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/ProductSingleLine.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/ProductSingleLine.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Components/SortBy.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/SortBy.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Components/filters.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/filters.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/context.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/context.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/About.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/About.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/Products.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Products.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,9 +45,11 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "F:/react/product_site-master",
+    "last_opened_file_path": "G:/faran/react-project-backend",
     "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
     "settings.editor.selected.configurable": "preferences.pluginManager",
     "vue.rearranger.settings.migration": "true"
@@ -88,6 +87,7 @@
       <workItem from="1685218301187" duration="14024000" />
       <workItem from="1685351570056" duration="5261000" />
       <workItem from="1685357045398" duration="648000" />
+      <workItem from="1685546411943" duration="7621000" />
     </task>
     <servers />
   </component>

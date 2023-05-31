@@ -5,20 +5,22 @@ import {TbFilters} from "react-icons/tb"
 import {useEffect, useState} from "react";
 
 export function SortBy() {
-    //by on key up in search input this function runs
-    const {searchProduct}=useGlobalContextAPI()
     //getting the value of product filters and the function that changes them
     const {filteredProduct, setActive} = useGlobalContextAPI()
     //getting products and the function that changes layout
     const {displayedProducts, setSingleLineLayout, isSingleLineLayout} = useGlobalContextAPI()
     //variable's value if is true then toggle layout is show and the function that changes the value
     const {isToggleLayout} = useGlobalContextAPI()
+    //setFilteredProduct for searching product
+    const {setFilteredProduct}=useGlobalContextAPI()
+    //getting search input infos
+    const {setSearchInput,searchInput}=useGlobalContextAPI()
     return (
         <div className={"col-12 px-3"}>
             <div className={"row align-items-center"}>
                 <div className={"col-lg-3 col-10 px-3 p-1"}>
                     <input className={"form-control border-0"} style={{background: "#f1f5f8"}}
-                           placeholder={'Search'}/>
+                         value={searchInput} onChange={(event)=>setSearchInput(event.target.value)}  placeholder={'Search'}/>
                 </div>
                 <div
                     className={'col-lg-1 col-2 position-relative  py-3 py-sm-0 justify-content-lg-start justify-content-end d-sm-flex'}>

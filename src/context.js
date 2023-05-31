@@ -5,6 +5,8 @@ import {useFetch} from "./useFetch";
 const AppContext = React.createContext();
 
 export function AppProvider({children}) {
+    //search input infos
+    const [searchInput,setSearchInput]=useState('')
     //these are filters information
     const [filters, setFilters] = useState({maxprice: 0})
     const [aboutInfo, setAboutInfo] = useState({})
@@ -25,20 +27,9 @@ export function AppProvider({children}) {
     //this function gives 2 args:url:the url that you want to fetch data from,dispatch:this is for states.when you got the data from url now you need to set it in states
     async function FetchCaller(url, dispatch) {
         let res = await useFetch(url)
-
         dispatch(res.data)
     }
 
-    //by setting filter on name this function runs
-    function searchProduct(searchedName) {
-        let newProduct = displayedProducts.filter((product) => {
-            if (product.name.toLowerCase().includes(searchedName.trim().toLocaleString())) {
-                return product
-            }
-            console.log(product.name.toLowerCase().includes(""))
-        })
-        setDisplayedProducts(newProduct)
-    }
 
     //this is for the way the products going to show
     const [isSingleLineLayout, setSingleLineLayout] = useState(false)
@@ -87,14 +78,15 @@ export function AppProvider({children}) {
         FetchCaller('http://127.0.0.1:8000/product/filter-item/', setFilters)
         //getting about page picture and title
         FetchCaller('http://127.0.0.1:8000/about/api/', setAboutInfo)
-
-        fetchProduct('http://127.0.0.1:8000/product/api/',displayedProducts)
+        //getting products
+        FetchCaller('http://127.0.0.1:8000/product/api/', setDisplayedProducts)
     }, [])
     //every time user set a filter the function well runs
     useEffect(() => {
-        let price=filteredProduct.price==0?"-":filteredProduct.price
+        let price = filteredProduct.price == 0 ? "-" : filteredProduct.price
+        console.log("s")
         fetchProduct(price)
-    }, [filteredProduct.category, filteredProduct.color, filteredProduct.company, filteredProduct.sortBy, filteredProduct.freeShopping])
+    }, [searchInput, filteredProduct.category, filteredProduct.color, filteredProduct.company, filteredProduct.sortBy, filteredProduct.freeShopping])
 
     //finding id of category and color and company
     function findId(Grouping, GroupingValue) {
@@ -107,11 +99,10 @@ export function AppProvider({children}) {
         return id
     }
 
-    //whan any filter defines this function runs
+    //when any filter defines this function runs
     function fetchProduct(price) {
-        let url = `http://127.0.0.1:8000/product/filter/${filteredProduct.category !== "all" ? findId("category", filteredProduct.category) : filteredProduct.category}/${filteredProduct.company !== "all" ? findId("company", filteredProduct.company) : filteredProduct.company}/${filteredProduct.color !== "all" ? findId("color", filteredProduct.color) : filteredProduct.color}/${price}/${filteredProduct.sortBy.slice(filteredProduct.sortBy.indexOf("(") + 1, filteredProduct.sortBy.indexOf("(") + 2)}/${filteredProduct.freeShopping.toString().slice(0, 1)}/`
+        let url = `http://127.0.0.1:8000/product/filter/${filteredProduct.category !== "all" ? findId("category", filteredProduct.category) : filteredProduct.category}/${filteredProduct.company !== "all" ? findId("company", filteredProduct.company) : filteredProduct.company}/${filteredProduct.color !== "all" ? findId("color", filteredProduct.color) : filteredProduct.color}/${price}/${filteredProduct.sortBy.slice(filteredProduct.sortBy.indexOf("(") + 1, filteredProduct.sortBy.indexOf("(") + 2)}/${filteredProduct.freeShopping.toString().slice(0, 1)}/${searchInput.trim()===""?"-":searchInput}`
         url = url.replaceAll("all", "-")
-        console.log(url)
         FetchCaller(url, setDisplayedProducts)
     }
 
@@ -132,7 +123,8 @@ export function AppProvider({children}) {
             filters,
             setSingleLineLayout,
             isSingleLineLayout,
-            searchProduct
+            searchInput,
+            setSearchInput
         }}>
             {children}
         </AppContext.Provider>
@@ -142,3 +134,4 @@ export function AppProvider({children}) {
 export const useGlobalContextAPI = () => {
     return useContext(AppContext)
 }
+

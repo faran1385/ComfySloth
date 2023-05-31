@@ -7,6 +7,9 @@ import {ColorList} from "./ColorList";
 import {MaxPrice} from "./MaxPrice";
 
 export function Filters() {
+    //getting search input value
+    const {setSearchInput}=useGlobalContextAPI()
+    //when user click on clear filter this funcion runs to set filters to initial state
     const {fetchProduct} = useGlobalContextAPI()
     //getting function that change the value of product filters (setActive)
     //setFilteredProduct is for clear all filters that INITIAL_VALUE_OF_FILTERED_PRODUCTS is its argument
@@ -93,7 +96,8 @@ export function Filters() {
                         </div>
                         <div className={"d-grid px-3  mt-4"}>
                             <button className={"btn btn-danger"}
-                                    onMouseUp={async () => {
+                                    onClick={async () => {
+                                        await setSearchInput('')
                                         await setFilteredProduct(INITIAL_VALUE_OF_FILTERED_PRODUCTS)
                                         fetchProduct(filters.maxprice)
                                     }}>clear filters
