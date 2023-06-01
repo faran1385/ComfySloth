@@ -84,7 +84,6 @@ export function AppProvider({children}) {
     //every time user set a filter the function well runs
     useEffect(() => {
         let price = filteredProduct.price == 0 ? "-" : filteredProduct.price
-        console.log("s")
         fetchProduct(price)
     }, [searchInput, filteredProduct.category, filteredProduct.color, filteredProduct.company, filteredProduct.sortBy, filteredProduct.freeShopping])
 
@@ -109,6 +108,7 @@ export function AppProvider({children}) {
     return (
         <AppContext.Provider value={{
             fetchProduct,
+            FetchCaller,
             INITIAL_VALUE_OF_FILTERED_PRODUCTS,
             setActive,
             aboutInfo,

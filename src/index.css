@@ -20,7 +20,7 @@
     z-index: -100;
     border-radius: 0.375rem;
 }
-.shop-btn,.see-more{
+.shop-btn,.see-more,.buy-btn{
     background-color:#ab7a5f!important;
     padding:.75rem;
     color: white!important;
@@ -30,7 +30,7 @@
     transition: all ease-in 400ms!important;
 }
 
-.shop-btn:hover,.see-more:hover{
+.shop-btn:hover,.see-more:hover,.buy-btn:hover{
     color:black!important;
     background-color: #c5a491!important;
 }
@@ -148,4 +148,16 @@
 }
 .product-image-backdrop:hover{
     opacity: 1;
+}
+.product-image{
+    transition: all ease-in 500ms;
+}
+.product-image:hover,.product-image.active{
+    scale: 1.1;
+    box-shadow: 0 .5rem 1rem rgba(0,0,0,.15)!important;
+    transform: translateY(-2px);
+}
+
+.buy-btn{
+
 }
