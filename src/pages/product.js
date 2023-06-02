@@ -1,4 +1,4 @@
-import {useFetcher, useParams} from "react-router-dom";
+import {Link, useFetcher, useParams} from "react-router-dom";
 import {useEffect, useState} from "react";
 import {useFetch} from "../useFetch";
 import {useGlobalContextAPI} from "../context";
@@ -7,10 +7,11 @@ import {ProductImageList} from "../Components/productImageList";
 import {BsCheckLg} from "react-icons/bs";
 import {AiOutlinePlus} from "react-icons/ai";
 import {BiMinus} from "react-icons/bi";
+import {FaTrash} from "react-icons/fa";
 
 export function Product() {
     //product count
-    const [productCount, setProductCount] = useState(1)
+    const [productCount, setProductCount] = useState(null)
     const {FetchCaller} = useGlobalContextAPI()
     //getting product id by url parameters
     const params = useParams()
@@ -28,15 +29,14 @@ export function Product() {
     const {active_image, images, name, score, views, sku, price, description, available} = product[0]
     const {brand} = product[1]
     const {color} = product[2]
-    console.log(product[2])
     return (
         <div className={"container pt-5"}>
             <div className={"row"}>
-                <div className={"col-lg-5"}>
+                <div className={"col-lg-5 ps-0 ps-lg-1  mb-lg-0 mb-4"}>
                     <img className={"rounded-2 w-100"} src={`http://localhost:8000${active_image}`}
                          style={{height: "25rem"}}/>
                 </div>
-                <div className={"col-lg-7 ps-5"}>
+                <div className={"col-lg-7  ps-lg-5 ps-0"}>
                     <h1 style={{fontWeight: 400}}>{name}</h1>
                     <div className={"d-flex align-items-center"}>
                         <StarList starScore={score}/>
@@ -50,58 +50,75 @@ export function Product() {
                         <p className={"text-muted"} style={{fontWeight: 600}}>{description}</p>
                     </div>
                     <div className={"row pb-2 align-items-baseline"}>
-                        <div className={"col-3"}>
+                        <div className={"col-sm-3"}>
                             <p className={"p-0 m-0"} style={{fontWeight: 500}}>Available :</p>
                         </div>
-                        <div className={"col-9"}>
+                        <div className={"col-sm-9"}>
                             <p className={"m-0 text-muted"}
                                style={{fontWeight: 500}}>{available ? "In Stock" : "Out Of Stock"}</p>
                         </div>
                     </div>
                     <div className={"row pb-2 align-items-baseline"}>
-                        <div className={"col-3"}>
+                        <div className={"col-sm-3"}>
                             <p className={"p-0 m-0"} style={{fontWeight: 500}}>SKU :</p>
                         </div>
-                        <div className={"col-9"}>
+                        <div className={"col-sm-9"}>
                             <p className={"m-0 text-muted"} style={{fontWeight: 500}}>{sku}</p>
                         </div>
                     </div>
                     <div className={"row pb-2 align-items-baseline"}>
-                        <div className={"col-3"}>
+                        <div className={"col-sm-3"}>
                             <p className={"p-0 m-0"} style={{fontWeight: 500}}>Brand :</p>
                         </div>
-                        <div className={"col-9"}>
+                        <div className={"col-sm-9"}>
                             <p className={"m-0 text-muted"} style={{fontWeight: 500}}>{brand}</p>
                         </div>
                     </div>
                     <div className={"row pb-2 align-items-end"}>
-                        <div className={"col-3"}>
+                        <div className={"col-sm-3"}>
                             <p className={"p-0 m-0"} style={{fontWeight: 500}}>color :</p>
                         </div>
-                        <div className={"col-9"}>
-                            <span
+                        <div className={"col-sm-9"}>
+                            {color!=="None"?(<span
                                 className={"text-muted d-flex position-relative justify-content-center align-items-center rounded-circle d-block"}
                                 style={{background: `#${color}`, width: "1.5rem", height: "1.5rem", top: ".2rem"}}>
                                 <BsCheckLg className={"text-white fw-bold"}/>
-                            </span>
+                            </span>):<p className={"m-0 text-muted"} style={{fontWeight: 500}}>No Color</p>}
                         </div>
                     </div>
                     <hr/>
                     <div className={"row justify-content-between align-items-center"}>
-                        <div className={"col-9"}>
+                        <div className={"col-4"}>
                             <span className={"fs-4"}>${Number(price).toLocaleString()}</span>
                         </div>
-                        <div className={"col-3 d-flex justify-content-end align-items-center "}>
-                            {/*<button className={"buy-btn btn"}>Add To Cart</button>*/}
-                            <BiMinus className={"me-3 user-select-none"} style={{cursor: "pointer"}}
-                                     onClick={() => setProductCount(prevState => prevState - 1)}/>
-                            <span className={"fs-5 user-select-none"}>{productCount}</span>
-                            <AiOutlinePlus className={"ms-3 user-select-none"} style={{cursor: "pointer"}}
-                                           onClick={() => setProductCount(prevState => prevState + 1)}/>
+                        <div className={"col-4"}>
+                            <small className={`${productCount?"d-block":"d-none"}`}>in the <Link  className={"text-decoration-none"} style={{color:"#19bfd3",cursor:"pointer"}}>shopping cart</Link></small>
+                        </div>
+                        <div className={"col-4 d-flex justify-content-end align-items-center "}>
+
+                            {productCount === null ?
+                                <button className={"buy-btn btn"} onClick={() => setProductCount(1)}>Add To
+                                    Cart</button> : productCount === 1 ? (<>
+                                        <FaTrash className={"me-3 user-select-none text-muted"}
+                                                 onClick={() => setProductCount(null)}
+                                                 style={{cursor: "pointer"}}/>
+                                        <span className={"fs-5 user-select-none"}>{productCount}</span>
+                                        <AiOutlinePlus className={"ms-3 user-select-none"} style={{cursor: "pointer"}}
+                                                       onClick={() => setProductCount(prevState => prevState + 1)}/>
+                                    </>)
+                                    : (<>
+                                        <BiMinus className={"me-3 user-select-none"}
+                                                 onClick={() => setProductCount(prevState => prevState - 1)}
+                                                 style={{cursor: "pointer"}}/>
+                                        <span className={"fs-5 user-select-none"}>{productCount}</span>
+                                        <AiOutlinePlus className={"ms-3 user-select-none"} style={{cursor: "pointer"}}
+                                                       onClick={() => setProductCount(prevState => prevState + 1)}/>
+                                    </>)}
+
                         </div>
                     </div>
                 </div>
-                <div className={"col-lg-5"}>
+                <div className={"col-lg-5 mt-5 mt-lg-0"}>
                     <div className={"row"}>
                         <ProductImageList productStuff={{product, setProduct, active_image}} productImages={images}/>
                     </div>

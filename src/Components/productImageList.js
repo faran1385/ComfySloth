@@ -8,9 +8,9 @@ export function ProductImageList(props) {
     const {productStuff}=props
     return (
         <>
-            {productImages.map((source) => {
+            {productImages.map((source,index) => {
                 return (
-                    <ProductImage productStuff={{...productStuff,source}}/>
+                    <ProductImage key={index} productStuff={{...productStuff,source}}/>
                 )
             })}
         </>

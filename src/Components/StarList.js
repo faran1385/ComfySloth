@@ -14,11 +14,11 @@ export function StarList(props) {
         <>
             {starStaticObject.map((star, index) => {
                 if (starScore - (index + 1) * 2 >= 0 && starScore - (index + 1) * 2 !== 1) {
-                    return <BsStarFill style={{color: "rgb(255, 185, 0)"}}/>
+                    return <BsStarFill  key={index} style={{color: "rgb(255, 185, 0)"}}/>
                 } else if (starScore - (index + 1) * 2 === 1) {
-                    return <BsStarHalf style={{color: "rgb(255, 185, 0)"}}/>
+                    return <BsStarHalf key={index}  style={{color: "rgb(255, 185, 0)"}}/>
                 } else {
-                    return <BsStar style={{color: "rgb(255, 185, 0)"}}/>
+                    return <BsStar key={index}  style={{color: "rgb(255, 185, 0)"}}/>
                 }
             })}
         </>
