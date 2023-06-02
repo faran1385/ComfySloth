@@ -168,3 +168,11 @@
     background: #333333;
     color: white;
 }
+.toast{
+    transition: all ease-in 500ms;
+    opacity: 0;
+    display: block!important;
+}
+.toast-show{
+    opacity: 1;
+}
