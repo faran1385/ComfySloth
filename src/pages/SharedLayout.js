@@ -2,14 +2,17 @@
 import {Outlet} from "react-router";
 import {Header} from "../Components/Header";
 import {Footer} from "../Components/Footer";
+import {useLocation} from "react-router-dom";
 //this component well render in every page
 //Outlet is the current page component for example if we are in home page it renders home component
 export function SharedLayout() {
+    //getting path name of window location
+    const {pathname}=useLocation()
     return (
         <>
-            <Header/>
+            {pathname==="/signin"||pathname==="/login"?"":<Header/>}
             <Outlet/>
-            <Footer/>
+            {pathname==="/signin"||pathname==="/login"?"":<Footer/>}
         </>
     );
 }

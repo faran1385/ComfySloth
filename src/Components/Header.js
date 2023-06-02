@@ -1,4 +1,4 @@
-import {Link} from "react-router-dom";
+import {Link, useLocation} from "react-router-dom";
 import {RiShoppingCart2Fill} from "react-icons/ri"
 import {IoMdPersonAdd} from "react-icons/io"
 import "bootstrap/dist/css/bootstrap.min.css"
@@ -28,8 +28,9 @@ export function Header() {
         linkUnderline.current.style.left = event.target.getBoundingClientRect().left + "px"
         linkUnderline.current.style.top = (event.target.getBoundingClientRect().top + event.target.getBoundingClientRect().height) + "px"
     }
+
     //getting the condition of user login
-        const {isLogin}=useGlobalContextAPI()
+    const {isLogin} = useGlobalContextAPI()
     return (
         <header>
             <div ref={linkUnderline}
@@ -105,7 +106,8 @@ export function Header() {
                                     </Link>
                                 </div>
                                 <div className={"col-lg-auto col-6"}>
-                                    <Link to={`${isLogin?'':"signin"}`} className={"text-decoration-none text-black"}>
+                                    <Link to={`${isLogin ? '' : "signin"}`}
+                                          className={"text-decoration-none text-black"}>
                                         <div className={"d-flex ms-4"}>
                                             <h4 className={"me-2"}>Login</h4>
                                             <IoMdPersonAdd className={"fs-3"}/>

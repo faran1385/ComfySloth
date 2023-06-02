@@ -158,6 +158,13 @@
     transform: translateY(-2px);
 }
 
-.buy-btn{
-
+.submit{
+    font-weight: bold;
+    transition: all ease 500ms;
+    background: white;
+    color: #333333;
+}
+.submit:hover{
+    background: #333333;
+    color: white;
 }
