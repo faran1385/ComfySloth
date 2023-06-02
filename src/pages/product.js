@@ -31,7 +31,7 @@ export function Product() {
     const {color} = product[2]
     return (
         <div className={"container pt-5"}>
-            <div className={"row"}>
+            <div className={"row ms-0"}>
                 <div className={"col-lg-5 ps-0 ps-lg-1  mb-lg-0 mb-4"}>
                     <img className={"rounded-2 w-100"} src={`http://localhost:8000${active_image}`}
                          style={{height: "25rem"}}/>
@@ -79,11 +79,11 @@ export function Product() {
                             <p className={"p-0 m-0"} style={{fontWeight: 500}}>color :</p>
                         </div>
                         <div className={"col-sm-9"}>
-                            {color!=="None"?(<span
+                            {color !== "None" ? (<span
                                 className={"text-muted d-flex position-relative justify-content-center align-items-center rounded-circle d-block"}
                                 style={{background: `#${color}`, width: "1.5rem", height: "1.5rem", top: ".2rem"}}>
                                 <BsCheckLg className={"text-white fw-bold"}/>
-                            </span>):<p className={"m-0 text-muted"} style={{fontWeight: 500}}>No Color</p>}
+                            </span>) : <p className={"m-0 text-muted"} style={{fontWeight: 500}}>No Color</p>}
                         </div>
                     </div>
                     <hr/>
@@ -92,7 +92,9 @@ export function Product() {
                             <span className={"fs-4"}>${Number(price).toLocaleString()}</span>
                         </div>
                         <div className={"col-4"}>
-                            <small className={`${productCount?"d-block":"d-none"}`}>in the <Link  className={"text-decoration-none"} style={{color:"#19bfd3",cursor:"pointer"}}>shopping cart</Link></small>
+                            <small className={`${productCount ? "d-block" : "d-none"}`}>in the <Link
+                                className={"text-decoration-none"} style={{color: "#19bfd3", cursor: "pointer"}}>shopping
+                                cart</Link></small>
                         </div>
                         <div className={"col-4 d-flex justify-content-end align-items-center "}>
 
