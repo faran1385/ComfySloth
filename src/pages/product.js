@@ -91,12 +91,12 @@ export function Product() {
                         <div className={"col-4"}>
                             <span className={"fs-4"}>${Number(price).toLocaleString()}</span>
                         </div>
-                        <div className={"col-4"}>
+                        <div className={`col-sm-4 ${productCount!==null?"col-8":"col-4"} d-flex justify-content-sm-center justify-content-end`}>
                             <small className={`${productCount ? "d-block" : "d-none"}`}>in the <Link
                                 className={"text-decoration-none"} style={{color: "#19bfd3", cursor: "pointer"}}>shopping
                                 cart</Link></small>
                         </div>
-                        <div className={"col-4 d-flex justify-content-end align-items-center "}>
+                        <div className={`col-sm-4 mt-sm-0 d-flex justify-content-sm-end justify-content-center ${productCount!==null?"mt-4 col-12 ":"mt-0 col-4"} align-items-center `}>
 
                             {productCount === null ?
                                 <button className={"buy-btn btn"} onClick={() => setProductCount(1)}>Add To

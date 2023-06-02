@@ -6,6 +6,9 @@ import {About} from "./pages/About";
 import {AppProvider} from "./context";
 import {Products} from "./pages/Products";
 import {Product} from "./pages/product"
+import {Login} from "./Components/Login";
+import {Signin} from "./Components/Signin";
+
 function App() {
     return (
         <BrowserRouter>
@@ -16,6 +19,8 @@ function App() {
                         <Route path={"about"} element={<About/>}/>
                         <Route path={"cart"}/>
                         <Route path={"products"} element={<Products/>}/>
+                        <Route path={"signin"} element={<Signin/>}/>
+                        <Route path={"login"} element={<Login/>}/>
                         <Route path={"product/:productId"} element={<Product/>}/>
                         <Route path={"*"} element={<NotFound/>}/>
                     </Route>

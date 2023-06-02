@@ -5,6 +5,8 @@ import {useFetch} from "./useFetch";
 const AppContext = React.createContext();
 
 export function AppProvider({children}) {
+    //checking if user has logged in
+    const [isLogin,setLogin]=useState(false)
     //search input infos
     const [searchInput,setSearchInput]=useState('')
     //these are filters information
@@ -107,6 +109,8 @@ export function AppProvider({children}) {
 
     return (
         <AppContext.Provider value={{
+            isLogin,
+            setLogin,
             fetchProduct,
             FetchCaller,
             INITIAL_VALUE_OF_FILTERED_PRODUCTS,
