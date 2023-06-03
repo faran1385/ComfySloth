@@ -9,7 +9,6 @@ export function Signin() {
     //email input state
     const [email, setEmail] = useState("")
     const [isInvalid, setInvalid] = useState({username: false, password: false, email: false})
-    document.body.style.background = "#333"
 
     //this function runs when you sumbit the form
     function submitHandler(event) {
@@ -30,7 +29,7 @@ export function Signin() {
     //show password condition
     const [passwordShowed, setPasswordShow] = useState(false)
     return (<>
-            <div className={"container"}>
+            <div className={"container pb-5"}>
                 <div className={"row justify-content-center"}>
                     <div className={"col-4 d-flex justify-content-center"}>
                         <div
@@ -44,11 +43,11 @@ export function Signin() {
                 </div>
             </div>
             <div className={"w-100 h-100 py-5"} style={{background: "#333"}}>
-                <div className={"container"}>
+                <div className={"container pb-5 "}>
                     <div className={"row justify-content-center"}>
                         <form onSubmit={(event) => submitHandler(event)}
                               action={"http://localhost:8000/user/create-user/"} method={"POST"}
-                              className={"col-lg-4 p-4 rounded-2 bg-white"}>
+                              className={"col-lg-4 p-4 col-8 rounded-2 bg-white"}>
                             <div>
                                 <h2 style={{fontWeight: 400}} className={"text-center"}>Sign in</h2>
                             </div>
@@ -69,18 +68,18 @@ export function Signin() {
                                            onChange={(event) => setPassword(event.target.value)}
                                            autoComplete={"off"} type={"password"} id={"password"}
                                            className={`form-control pe-4 ${isInvalid.password ? "is-invalid  " : ""}`}
-                                           name={"password"} />
+                                           name={"password"}/>
 
-                                    {!passwordShowed ?
+                                    {!passwordShowed && isInvalid.password === false ?
                                         <BiShow className={"position-absolute me-2"} onClick={(event) => {
-                                            event.target.parentElement.children[0].type="text";
+                                            event.target.parentElement.children[0].type = "text";
                                             setPasswordShow(true)
-                                        }}/> :
-                                        <BiHide className={"position-absolute me-2"}
-                                                onClick={(event) => {
-                                                    event.target.parentElement.children[0].type="password";
-                                                    setPasswordShow(false)
-                                                }}/>}
+                                        }}/> : isInvalid.password === false ?
+                                            <BiHide className={"position-absolute me-2"}
+                                                    onClick={(event) => {
+                                                        event.target.parentElement.children[0].type = "password";
+                                                        setPasswordShow(false)
+                                                    }}/> : ""}
                                 </div>
                             </div>
                             <div className={"pt-4"}>

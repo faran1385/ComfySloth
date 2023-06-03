@@ -4,8 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cbc95a15-3a3c-4cda-8b3b-94d160829a50" name="Changes" comment="">
+    <list default="true" id="c991270e-8fdf-4cb8-b73f-510b632d62b0" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/Login.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Login.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Components/Signin.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Signin.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/SharedLayout.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/SharedLayout.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/product.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/product.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -15,90 +23,42 @@
   <component name="ComposerSettings">
     <execution />
   </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="JavaScript File" />
-      </list>
-    </option>
-  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="ProjectId" id="2PvQbIRWm3kAveWmtlpF0CYr9pW" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectId" id="2QgLOplJKD6Ia2fq7VezOr8ollP" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "G:/faran/react-project",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="cbc95a15-3a3c-4cda-8b3b-94d160829a50" name="Changes" comment="" />
-      <created>1684335147149</created>
+      <changelist id="c991270e-8fdf-4cb8-b73f-510b632d62b0" name="Changes" comment="" />
+      <created>1685770248981</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1684335147149</updated>
-      <workItem from="1684335170234" duration="169000" />
-      <workItem from="1684335346456" duration="1409000" />
-      <workItem from="1684382669207" duration="1006000" />
-      <workItem from="1684388758388" duration="7248000" />
-      <workItem from="1684406504603" duration="883000" />
-      <workItem from="1684417377825" duration="1030000" />
-      <workItem from="1684418880268" duration="3910000" />
-      <workItem from="1684470945195" duration="1686000" />
-      <workItem from="1684575728609" duration="1663000" />
-      <workItem from="1684588523855" duration="3636000" />
-      <workItem from="1684647473458" duration="732000" />
-      <workItem from="1684938342868" duration="564000" />
-      <workItem from="1684947842366" duration="1084000" />
-      <workItem from="1684955347670" duration="323000" />
-      <workItem from="1685001532860" duration="22615000" />
-      <workItem from="1685034594102" duration="139000" />
-      <workItem from="1685077677577" duration="7660000" />
-      <workItem from="1685110658415" duration="4558000" />
-      <workItem from="1685127422217" duration="2078000" />
-      <workItem from="1685144965925" duration="7715000" />
-      <workItem from="1685178482805" duration="18633000" />
-      <workItem from="1685218301187" duration="14024000" />
-      <workItem from="1685351570056" duration="5261000" />
-      <workItem from="1685357045398" duration="648000" />
-      <workItem from="1685546411943" duration="8349000" />
-      <workItem from="1685606478703" duration="22946000" />
-      <workItem from="1685704793067" duration="12067000" />
+      <updated>1685770248981</updated>
+      <workItem from="1685770252833" duration="5989000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
-  </component>
-  <component name="Vcs.Log.Tabs.Properties">
-    <option name="TAB_STATES">
-      <map>
-        <entry key="MAIN">
-          <value>
-            <State />
-          </value>
-        </entry>
-      </map>
-    </option>
   </component>
 </project>

@@ -21,14 +21,82 @@ export function Product() {
     useEffect(() => {
         FetchCaller(`http://127.0.0.1:8000/product/api/detail/${params.productId}/`, setProduct)
     }, [])
-    if (product === null) {
-        return <>
-
-        </>
+    if (product!==null) {
+        return <div className={"container pt-5"}>
+            <div className={"row ms-0"}>
+                <div className={"col-lg-5 ps-0 ps-lg-1  mb-lg-0 mb-4"}>
+                    <div className={"rounded-2 placeholder placeholder-wave w-100"}
+                         style={{height: "25rem"}}></div>
+                </div>
+                <div className={"col-lg-7  ps-lg-5 ps-0"}>
+                    <div className={"container"}>
+                        <div className={"row px-2 flex-column"}>
+                            <div className={"col-4 mb-3 placeholder-lg placeholder placeholder-wave"}></div>
+                            <div className={"d-flex mb-3 mb-2 ps-0 align-items-center"}>
+                                <div className={"col-4 placeholder placeholder-wave"}></div>
+                                <div className={"col-3 offset-1 placeholder placeholder-wave"}></div>
+                            </div>
+                            <div className={"placeholder mb-2 placeholder-wave col-4"}></div>
+                            <div className={"placeholder mb-2 mt-5 placeholder-wave col-12"}></div>
+                            <div className={"placeholder mb-2 placeholder-wave col-12"}></div>
+                            <div className={"placeholder mb-2 placeholder-wave col-12"}></div>
+                            <div className={"placeholder mb-2 placeholder-wave col-12"}></div>
+                            <div className={"placeholder mb-2 placeholder-wave col-12"}></div>
+                            <div className={"d-flex mb-3 mt-4 ps-0"}>
+                                <div className={"placeholder placeholder-wave col-3"}></div>
+                                <div className={"placeholder offset-1 placeholder-wave col-3"}></div>
+                            </div>
+                            <div className={"d-flex mb-3 ps-0"}>
+                                <div className={"placeholder placeholder-wave col-3"}></div>
+                                <div className={"placeholder offset-1 placeholder-wave col-3"}></div>
+                            </div>
+                            <div className={"d-flex mb-3 ps-0"}>
+                                <div className={"placeholder placeholder-wave col-3"}></div>
+                                <div className={"placeholder offset-1 placeholder-wave col-3"}></div>
+                            </div>
+                            <div className={"d-flex mb-3 ps-0"}>
+                                <div className={"placeholder placeholder-wave col-3"}></div>
+                                <div className={"placeholder offset-1 placeholder-wave col-3"}></div>
+                            </div>
+                        </div>
+                        <hr/>
+                        <div className={"row px-3 justify-content-between mb-5"}>
+                            <div className={"col-3 placeholder placeholder-lg placeholder-wave"}></div>
+                            <div className={"col-3 placeholder placeholder-lg placeholder-wave"}></div>
+                        </div>
+                    </div>
+                </div>
+                <div className={"col-lg-5 mt-5 mt-lg-0 position-relative"} style={{bottom:"4rem"}}>
+                    <div className={"row"}>
+                        <div className={"col-4 mt-3 mb-2 user-select-none"} style={{cursor: "pointer"}}>
+                            <div style={{height: "5rem"}}
+                                 className={`w-100 rounded-2 placeholder placeholder-wave`}></div>
+                        </div>
+                        <div className={"col-4 mt-3 mb-2 user-select-none"} style={{cursor: "pointer"}}>
+                            <div style={{height: "5rem"}}
+                                 className={`w-100 rounded-2 placeholder placeholder-wave`}></div>
+                        </div>
+                        <div className={"col-4 mt-3 mb-2 user-select-none"} style={{cursor: "pointer"}}>
+                            <div style={{height: "5rem"}}
+                                 className={`w-100 rounded-2 placeholder placeholder-wave`}></div>
+                        </div>
+                        <div className={"col-4 mt-3 mb-2 user-select-none"} style={{cursor: "pointer"}}>
+                            <div style={{height: "5rem"}}
+                                 className={`w-100 rounded-2 placeholder placeholder-wave`}></div>
+                        </div>
+                        <div className={"col-4 mt-3 mb-2 user-select-none"} style={{cursor: "pointer"}}>
+                            <div style={{height: "5rem"}}
+                                 className={`w-100 rounded-2 placeholder placeholder-wave`}></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     }
     const {active_image, images, name, score, views, sku, price, description, available} = product[0]
     const {brand} = product[1]
     const {color} = product[2]
+
     return (
         <div className={"container pt-5"}>
             <div className={"row ms-0"}>
@@ -91,12 +159,14 @@ export function Product() {
                         <div className={"col-4"}>
                             <span className={"fs-4"}>${Number(price).toLocaleString()}</span>
                         </div>
-                        <div className={`col-sm-4 ${productCount!==null?"col-8":"col-4"} d-flex justify-content-sm-center justify-content-end`}>
+                        <div
+                            className={`col-sm-4 ${productCount !== null ? "col-8" : "col-4"} d-flex justify-content-sm-center justify-content-end`}>
                             <small className={`${productCount ? "d-block" : "d-none"}`}>in the <Link
                                 className={"text-decoration-none"} style={{color: "#19bfd3", cursor: "pointer"}}>shopping
                                 cart</Link></small>
                         </div>
-                        <div className={`col-sm-4 mt-sm-0 d-flex justify-content-sm-end justify-content-center ${productCount!==null?"mt-4 col-12 ":"mt-0 col-4"} align-items-center `}>
+                        <div
+                            className={`col-sm-4 mt-sm-0 d-flex justify-content-sm-end justify-content-center ${productCount !== null ? "mt-4 col-12 " : "mt-0 col-4"} align-items-center `}>
 
                             {productCount === null ?
                                 <button className={"buy-btn btn"} onClick={() => setProductCount(1)}>Add To

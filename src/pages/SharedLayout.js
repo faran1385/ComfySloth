@@ -8,6 +8,11 @@ import {useLocation} from "react-router-dom";
 export function SharedLayout() {
     //getting path name of window location
     const {pathname}=useLocation()
+    if(pathname==="/signin"||pathname==="/login"){
+        document.body.style.background = "#333"
+    }else{
+        document.body.style.background = "white"
+    }
     return (
         <>
             {pathname==="/signin"||pathname==="/login"?"":<Header/>}
