@@ -21,7 +21,7 @@ export function Product() {
     useEffect(() => {
         FetchCaller(`http://127.0.0.1:8000/product/api/detail/${params.productId}/`, setProduct)
     }, [])
-    if (product!==null) {
+    if (product === null) {
         return <div className={"container pt-5"}>
             <div className={"row ms-0"}>
                 <div className={"col-lg-5 ps-0 ps-lg-1  mb-lg-0 mb-4"}>
@@ -66,7 +66,7 @@ export function Product() {
                         </div>
                     </div>
                 </div>
-                <div className={"col-lg-5 mt-5 mt-lg-0 position-relative"} style={{bottom:"4rem"}}>
+                <div className={"col-lg-5 mt-5 mt-lg-0 position-relative"} style={{bottom: "4rem"}}>
                     <div className={"row"}>
                         <div className={"col-4 mt-3 mb-2 user-select-none"} style={{cursor: "pointer"}}>
                             <div style={{height: "5rem"}}

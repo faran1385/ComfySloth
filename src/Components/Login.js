@@ -1,5 +1,6 @@
 import {BiHide, BiShow} from "react-icons/bi";
 import {useState} from "react";
+import {Link} from "react-router-dom";
 
 export function Login() {
     //username input state
@@ -48,7 +49,7 @@ export function Login() {
                               action={"http://localhost:8000/user/create-user/"} method={"POST"}
                               className={"col-lg-4 col-8 p-4 rounded-2 bg-white"}>
                             <div>
-                                <h2 style={{fontWeight: 400}} className={"text-center"}>Login in</h2>
+                                <h2 style={{fontWeight: 400}} className={"text-center"}>Login</h2>
                             </div>
                             <div className={"pt-4"}>
                                 <label className={"form-label fs-6"} style={{fontWeight: 400}}>Username</label>
@@ -60,7 +61,8 @@ export function Login() {
                                        name={"username"}/>
                             </div>
                             <div className={"pt-4"}>
-                                <label className={"form-label fs-6"} style={{fontWeight: 400}}>Password</label>
+                                <label className={"form-label fs-6"} style={{fontWeight: 400}}>Password <small
+                                    style={{color: "#19bfd3", cursor: "pointer"}}>forgot?</small></label>
                                 <div className={"position-relative d-flex justify-content-end align-items-center"}
                                      style={{cursor: "pointer"}}>
                                     <input onKeyUp={() => setInvalid({...isInvalid, password: false})} value={password}
@@ -69,21 +71,27 @@ export function Login() {
                                            className={`form-control pe-4 ${isInvalid.password ? "is-invalid  " : ""}`}
                                            name={"password"}/>
 
-                                    {!passwordShowed &&isInvalid.password!==true?
+                                    {!passwordShowed && isInvalid.password !== true ?
                                         <BiShow className={"position-absolute me-2"} onClick={(event) => {
                                             event.target.parentElement.children[0].type = "text";
                                             setPasswordShow(true)
-                                        }}/> :isInvalid.password!==true?
-                                        <BiHide className={"position-absolute me-2"}
-                                                onClick={(event) => {
-                                                    event.target.parentElement.children[0].type = "password";
-                                                    setPasswordShow(false)
-                                                }}/>:""}
+                                        }}/> : isInvalid.password !== true ?
+                                            <BiHide className={"position-absolute me-2"}
+                                                    onClick={(event) => {
+                                                        event.target.parentElement.children[0].type = "password";
+                                                        setPasswordShow(false)
+                                                    }}/> : ""}
                                 </div>
                             </div>
                             <div className={"pt-5"}>
-                                <input type={"submit"} className={"form-control fs-6 shadow-none submit"}
+                                <input type={"submit"} value={"Login"}
+                                       className={"form-control fs-6 shadow-none submit"}
                                        style={{fontWeight: 500, transition: "all ease-in 500ms"}}/>
+                            </div>
+                            <div className={"mt-2 d-flex justify-content-center"}>
+                                <Link to={"/signin"} className={"text-decoration-none text-center pt-3"}>You haven't
+                                    sign in
+                                    yet ?</Link>
                             </div>
                         </form>
                     </div>

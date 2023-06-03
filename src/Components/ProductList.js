@@ -18,7 +18,5 @@ export function ProductList() {
                 </div>
             </div>
         );
-    }else{
-        return <FilltersLoading/>
     }
 }

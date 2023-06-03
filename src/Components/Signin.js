@@ -1,5 +1,6 @@
 import {useState} from "react";
 import {BiShow, BiHide} from "react-icons/bi"
+import {Link} from "react-router-dom";
 
 export function Signin() {
     //username input state
@@ -91,8 +92,11 @@ export function Signin() {
                                        name={"email"}/>
                             </div>
                             <div className={"pt-5"}>
-                                <input type={"submit"} className={"form-control fs-6 shadow-none submit"}
+                                <input type={"submit"} value={"Sign in  "} className={"form-control fs-6 shadow-none submit"}
                                        style={{fontWeight: 500, transition: "all ease-in 500ms"}}/>
+                            </div>
+                            <div className={"mt-2 d-flex justify-content-center"}>
+                                <Link to={'/login'} className={"text-decoration-none text-center pt-3"}>Already have an account ?</Link>
                             </div>
                         </form>
                     </div>
