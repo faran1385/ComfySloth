@@ -61,8 +61,9 @@ export function Login() {
                                        name={"username"}/>
                             </div>
                             <div className={"pt-4"}>
-                                <label className={"form-label fs-6"} style={{fontWeight: 400}}>Password <small
-                                    style={{color: "#19bfd3", cursor: "pointer"}}>forgot?</small></label>
+                                <label className={"form-label fs-6"} style={{fontWeight: 400}}>Password <small><Link className={"text-decoration-none"}
+                                    style={{color: "#19bfd3"}}
+                                    to={"/forgetpassword"}>forget?</Link></small></label>
                                 <div className={"position-relative d-flex justify-content-end align-items-center"}
                                      style={{cursor: "pointer"}}>
                                     <input onKeyUp={() => setInvalid({...isInvalid, password: false})} value={password}

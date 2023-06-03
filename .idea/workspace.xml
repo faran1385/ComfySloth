@@ -7,11 +7,9 @@
     <list default="true" id="c991270e-8fdf-4cb8-b73f-510b632d62b0" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/EmailConfirmation.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/EmailConfirmation.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Components/Login.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Login.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/ProductList.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/ProductList.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/Signin.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Signin.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/SharedLayout.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/SharedLayout.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/product.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/product.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,6 +49,11 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="G:\faran\react-project\src\pages" />
+    </key>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -59,7 +62,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1685770248981</updated>
-      <workItem from="1685770252833" duration="16830000" />
+      <workItem from="1685770252833" duration="21291000" />
     </task>
     <servers />
   </component>

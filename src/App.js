@@ -8,7 +8,9 @@ import {Products} from "./pages/Products";
 import {Product} from "./pages/product"
 import {Login} from "./Components/Login";
 import {Signin} from "./Components/Signin";
-import {EmailConfirmation} from "./Components/EmailConfirmation";
+import {EmailConfirmation} from "./pages/EmailConfirmation";
+import {EmailConfirmed} from "./pages/EmailConfirmed";
+import {ForgetPassword} from "./pages/ForgetPassword";
 
 function App() {
     return (
@@ -21,7 +23,9 @@ function App() {
                         <Route path={"cart"}/>
                         <Route path={"products"} element={<Products/>}/>
                         <Route path={"signin"} element={<Signin/>}/>
-                        <Route path={"/emailConfirmation"} element={<EmailConfirmation/>}/>
+                        <Route path={"emailconfirmed"} element={<EmailConfirmed/>}/>
+                        <Route path={"forgetpassword"} element={<ForgetPassword/>}/>
+                        <Route path={"emailconfirmation"} element={<EmailConfirmation/>}/>
                         <Route path={"login"} element={<Login/>}/>
                         <Route path={"product/:productId"} element={<Product/>}/>
                         <Route path={"*"} element={<NotFound/>}/>

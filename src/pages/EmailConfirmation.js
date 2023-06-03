@@ -1,6 +1,6 @@
 import {BiHide, BiShow} from "react-icons/bi";
 import {Link} from "react-router-dom";
-import {EmailConfigurationInput} from "./emailConfigurationInput";
+import {EmailConfigurationInput} from "../Components/emailConfigurationInput";
 
 export function EmailConfirmation() {
     return (
