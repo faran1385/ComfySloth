@@ -21,17 +21,6 @@ export function Signin() {
             setPassword("")
             setEmail("")
             setInvalid({username: true, password: true, email: true})
-        } else {
-            let newUser = {
-                username: username,
-                email: email,
-                password: password
-            }
-            let res = await axios.post('http://localhost:8000/user/create-user/', newUser, {
-                headers: {
-                    'Content-Type': 'application/json'
-                }
-            })
         }
     }
 
@@ -59,6 +48,7 @@ export function Signin() {
                 <div className={"container pb-5 "}>
                     <div className={"row justify-content-center"}>
                         <form onSubmit={(event) => submitHandler(event)}
+                              action={'http://localhost:8000/user/create-user/'} method={'POST'}
                               className={"col-lg-4 p-4 col-8 rounded-2 bg-white"}>
                             <div>
                                 <h2 style={{fontWeight: 400}} className={"text-center"}>Sign in</h2>
