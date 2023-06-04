@@ -1,23 +1,37 @@
-import {BiHide, BiShow} from "react-icons/bi";
 import {useState} from "react";
+import {BiShow, BiHide} from "react-icons/bi"
 import {Link} from "react-router-dom";
+import axios from "axios";
 
-export function Login() {
+export function Signin() {
     //username input state
     const [username, setUsername] = useState("")
     //password input state
     const [password, setPassword] = useState("")
-
-    const [isInvalid, setInvalid] = useState({username: false, password: false})
+    //email input state
+    const [email, setEmail] = useState("")
+    const [isInvalid, setInvalid] = useState({username: false, password: false, email: false})
 
     //this function runs when you sumbit the form
-    function submitHandler(event) {
+    async function submitHandler(event) {
+        event.preventDefault()
         //testing if inputs are not coordinated with their regex
-        if (!isValid(username, /^[a-zA-Z0-9](_(?!(\.|_))|\.(?!(_|\.))|[a-zA-Z0-9]){6,18}[a-zA-Z0-9]$/) || !isValid(password, /^[a-zA-Z0-9!@#$%^&*]{6,16}$/)) {
-            event.preventDefault()
+        if (!isValid(username, /^[a-zA-Z0-9](_(?!(\.|_))|\.(?!(_|\.))|[a-zA-Z0-9]){6,18}[a-zA-Z0-9]$/) || !isValid(password, /^[a-zA-Z0-9!@#$%^&*]{6,16}$/) || !isValid(email, /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/)) {
             setUsername("")
             setPassword("")
-            setInvalid({username: true, password: true})
+            setEmail("")
+            setInvalid({username: true, password: true, email: true})
+        } else {
+            let newUser = {
+                username: username,
+                email: email,
+                password: password
+            }
+            let res = await axios.post('http://localhost:8000/user/create-user/', newUser, {
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            })
         }
     }
 
@@ -27,29 +41,27 @@ export function Login() {
 
     //show password condition
     const [passwordShowed, setPasswordShow] = useState(false)
-    return (
-        <>
+    return (<>
             <div className={"container pb-5"}>
                 <div className={"row justify-content-center"}>
                     <div className={"col-4 d-flex justify-content-center"}>
                         <div
-                            className={`toast ${isInvalid.username && isInvalid.password ? "toast-show" : ""} position-absolute`}
+                            className={`toast ${isInvalid.username && isInvalid.email && isInvalid.password ? "toast-show" : ""} position-absolute`}
                             style={{top: ".5rem"}}>
                             <div className="toast-body text-center text-danger fw-bold">
-                                There is something wrong with username or password
+                                There is something wrong with username or password or email
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
             <div className={"w-100 h-100 py-5"} style={{background: "#333"}}>
-                <div className={"container pb-5"}>
+                <div className={"container pb-5 "}>
                     <div className={"row justify-content-center"}>
                         <form onSubmit={(event) => submitHandler(event)}
-                              action={"http://localhost:8000/user/create-user/"} method={"POST"}
-                              className={"col-lg-4 col-8 p-4 rounded-2 bg-white"}>
+                              className={"col-lg-4 p-4 col-8 rounded-2 bg-white"}>
                             <div>
-                                <h2 style={{fontWeight: 400}} className={"text-center"}>Login</h2>
+                                <h2 style={{fontWeight: 400}} className={"text-center"}>Sign in</h2>
                             </div>
                             <div className={"pt-4"}>
                                 <label className={"form-label fs-6"} style={{fontWeight: 400}}>Username</label>
@@ -61,9 +73,7 @@ export function Login() {
                                        name={"username"}/>
                             </div>
                             <div className={"pt-4"}>
-                                <label className={"form-label fs-6"} style={{fontWeight: 400}}>Password <small><Link className={"text-decoration-none"}
-                                    style={{color: "#19bfd3"}}
-                                    to={"/forgetpassword"}>forget?</Link></small></label>
+                                <label className={"form-label fs-6"} style={{fontWeight: 400}}>Password</label>
                                 <div className={"position-relative d-flex justify-content-end align-items-center"}
                                      style={{cursor: "pointer"}}>
                                     <input onKeyUp={() => setInvalid({...isInvalid, password: false})} value={password}
@@ -72,32 +82,41 @@ export function Login() {
                                            className={`form-control pe-4 ${isInvalid.password ? "is-invalid  " : ""}`}
                                            name={"password"}/>
 
-                                    {!passwordShowed && isInvalid.password !== true ?
+                                    {passwordShowed === false && isInvalid.password === false ?
                                         <BiShow className={"position-absolute me-2"} onClick={(event) => {
                                             event.target.parentElement.children[0].type = "text";
+                                            event.target.parentElement.firstChild.blur()
                                             setPasswordShow(true)
-                                        }}/> : isInvalid.password !== true ?
+                                        }}/> : isInvalid.password === false ?
                                             <BiHide className={"position-absolute me-2"}
                                                     onClick={(event) => {
                                                         event.target.parentElement.children[0].type = "password";
+                                                        event.target.parentElement.firstChild.blur()
                                                         setPasswordShow(false)
                                                     }}/> : ""}
                                 </div>
                             </div>
+                            <div className={"pt-4"}>
+                                <label className={"form-label fs-6"} style={{fontWeight: 400}}>Email</label>
+                                <input onKeyUp={() => setInvalid({...isInvalid, email: false})} value={email}
+                                       onChange={(event) => setEmail(event.target.value)}
+                                       autoComplete={"off"} type={"email"} id={"email"}
+                                       className={`form-control ${isInvalid.email ? "is-invalid    " : ""}`}
+                                       name={"email"}/>
+                            </div>
                             <div className={"pt-5"}>
-                                <input type={"submit"} value={"Login"}
+                                <input type={"submit"} value={"Sign in  "}
                                        className={"form-control fs-6 shadow-none submit"}
                                        style={{fontWeight: 500, transition: "all ease-in 500ms"}}/>
                             </div>
                             <div className={"mt-2 d-flex justify-content-center"}>
-                                <Link to={"/signin"} className={"text-decoration-none text-center pt-3"}>You haven't
-                                    sign in
-                                    yet ?</Link>
+                                <Link to={'/login'} className={"text-decoration-none text-center pt-3"}>Already have an
+                                    account ?</Link>
                             </div>
                         </form>
                     </div>
                 </div>
             </div>
         </>
-    )
+    );
 }

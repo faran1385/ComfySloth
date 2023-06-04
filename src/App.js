@@ -6,8 +6,8 @@ import {About} from "./pages/About";
 import {AppProvider} from "./context";
 import {Products} from "./pages/Products";
 import {Product} from "./pages/product"
-import {Login} from "./Components/Login";
-import {Signin} from "./Components/Signin";
+import {Login} from "./pages/Login";
+import {Signin} from "./pages/Signin";
 import {EmailConfirmation} from "./pages/EmailConfirmation";
 import {EmailConfirmed} from "./pages/EmailConfirmed";
 import {ForgetPassword} from "./pages/ForgetPassword";

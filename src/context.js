@@ -31,8 +31,6 @@ export function AppProvider({children}) {
         let res = await useFetch(url)
         dispatch(res.data)
     }
-
-
     //this is for the way the products going to show
     const [isSingleLineLayout, setSingleLineLayout] = useState(false)
 
@@ -75,7 +73,7 @@ export function AppProvider({children}) {
         // getting the featured product infos
         FetchCaller('http://localhost:8000/product/home/api/', setFeaturedProduct)
         //getting the custom furniture services
-        FetchCaller('http://localhost:8000/home/api/?format=json', setServices)
+        FetchCaller('http://localhost:8000/home/api/', setServices)
         //getting filters
         FetchCaller('http://127.0.0.1:8000/product/filter-item/', setFilters)
         //getting about page picture and title

@@ -161,7 +161,7 @@ export function Product() {
                         </div>
                         <div
                             className={`col-sm-4 ${productCount !== null ? "col-8" : "col-4"} d-flex justify-content-sm-center justify-content-end`}>
-                            <small className={`${productCount ? "d-block" : "d-none"}`}>in the <Link
+                            <small className={`${productCount ? "d-block" : "d-none"}`}>in the <Link to={'/cart'}
                                 className={"text-decoration-none"} style={{color: "#19bfd3", cursor: "pointer"}}>shopping
                                 cart</Link></small>
                         </div>

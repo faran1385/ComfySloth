@@ -4,12 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c991270e-8fdf-4cb8-b73f-510b632d62b0" name="Changes" comment="">
+    <list default="true" id="589d1518-6dd5-4f4c-ad63-3dcfa97339d0" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/EmailConfirmation.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/EmailConfirmation.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/Login.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Login.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/SharedLayout.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/SharedLayout.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/Login.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Login.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/Signin.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Signin.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/product.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/product.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -19,20 +19,13 @@
   <component name="ComposerSettings">
     <execution />
   </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="JavaScript File" />
-      </list>
-    </option>
-  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="ProjectId" id="2QgLOplJKD6Ia2fq7VezOr8ollP" />
+  <component name="ProjectId" id="2QjL2zNHErbODK0rlOmrLEWqD0m" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -57,12 +50,12 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="c991270e-8fdf-4cb8-b73f-510b632d62b0" name="Changes" comment="" />
-      <created>1685770248981</created>
+      <changelist id="589d1518-6dd5-4f4c-ad63-3dcfa97339d0" name="Changes" comment="" />
+      <created>1685861840674</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1685770248981</updated>
-      <workItem from="1685770252833" duration="21291000" />
+      <updated>1685861840674</updated>
+      <workItem from="1685861844516" duration="5220000" />
     </task>
     <servers />
   </component>
