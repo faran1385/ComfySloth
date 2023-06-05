@@ -2,6 +2,7 @@
 let isValid = null
 
 export function EmailConfigurationInput(props) {
+    const {setKeyFunc} = props
     const {inputName} = props
 
     function validation(event) {
@@ -38,9 +39,10 @@ export function EmailConfigurationInput(props) {
                         parentChildren[index + number].firstChild.focus()
                         //checking if use is done typing
                         //sets input blur
-                    }else if(number === 1 && index === parentChildren.length - 1){
+                    } else if (number === 1 && index === parentChildren.length - 1) {
                         parentChildren[index].firstChild.blur()
                     }
+                    setKeyFunc(event.target.value)
                 }
             })
             //setting is valid null to set back to initial value

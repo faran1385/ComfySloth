@@ -25,7 +25,7 @@ function App() {
                         <Route path={"signin"} element={<Signin/>}/>
                         <Route path={"emailconfirmed"} element={<EmailConfirmed/>}/>
                         <Route path={"forgetpassword"} element={<ForgetPassword/>}/>
-                        <Route path={"emailconfirmation"} element={<EmailConfirmation/>}/>
+                        <Route path={"emailconfirmation/:username/:email"} element={<EmailConfirmation/>}/>
                         <Route path={"login"} element={<Login/>}/>
                         <Route path={"product/:productId"} element={<Product/>}/>
                         <Route path={"*"} element={<NotFound/>}/>

@@ -16,10 +16,10 @@ export function SharedLayout() {
     }
     return (
         <>
-            {pathname.toLowerCase() === "/forgetpassword" ||pathname.toLowerCase() === "/emailconfirmed" ||pathname.toLowerCase() === "/signin" || pathname.toLowerCase() === "/login" || pathname.toLowerCase() === "/emailconfirmation" ? "" :
+            {pathname.toLowerCase() === "/forgetpassword" ||pathname.toLowerCase() === "/emailconfirmed" ||pathname.toLowerCase() === "/signin" || pathname.toLowerCase() === "/login" || pathname.toLowerCase().includes("/emailconfirmation") ? "" :
                 <Header/>}
             <Outlet/>
-            {pathname.toLowerCase() === "/forgetpassword" ||pathname.toLowerCase() === "/emailconfirmed" ||pathname.toLowerCase() === "/signin" || pathname.toLowerCase() === "/login" || pathname.toLowerCase() === "/emailconfirmation" ? "" :
+            {pathname.toLowerCase() === "/forgetpassword" ||pathname.toLowerCase() === "/emailconfirmed" ||pathname.toLowerCase() === "/signin" || pathname.toLowerCase() === "/login" || pathname.toLowerCase().includes("/emailconfirmation") ? "" :
                 <Footer/>}
         </>
     );
