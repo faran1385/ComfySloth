@@ -35,7 +35,7 @@ export function Signin() {
                 })
                 navigate(`/emailconfirmation/${username}/${email}`)
             } catch (error) {
-                console.log(error)
+
                 if (error.response.status === 400) {
                     setMassage('This user already exists')
                     setInvalidForm()
@@ -127,7 +127,7 @@ export function Signin() {
                                        style={{fontWeight: 500, transition: "all ease-in 500ms"}}/>
                             </div>
                             <div className={"mt-2 d-flex justify-content-center"}>
-                                <Link to={'/login'} className={"text-decoration-none text-center pt-3"}>Already have an
+                                <Link to={'/login'} className={"text-decoration-none text-center pt-3"} >Already have an
                                     account ?</Link>
                             </div>
                         </form>

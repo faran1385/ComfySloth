@@ -14,6 +14,7 @@ export function EmailConfigurationInput(props) {
             //it defines that we must set prev input on focus
         } else if (event.key === 'Backspace') {
             isValid = true
+
             //checking if pressed key was not none of them it's a number
             //it defines that we must set next input on focus
         } else {
@@ -26,7 +27,7 @@ export function EmailConfigurationInput(props) {
         if (isValid) {
             //event target parent element childrens
             let parentChildren = Array.from(event.target.parentElement.parentElement.children)
-            parentChildren.forEach((child, index) => {
+            parentChildren.forEach(async (child, index) => {
                 //checking which input is the same input as event target
                 if (event.target.name === child.firstChild.name) {
                     //checking what is the number if it was 1 it means we must set next input focus
@@ -55,6 +56,7 @@ export function EmailConfigurationInput(props) {
                className={"form-control fs-3 mb-2 text-center border-top-0 border-start-0 border-end-0 rounded-0  shadow-none"}
                type={"text"}
                name={inputName}
+               autoComplete={'off'}
                onKeyUp={(event) => setFocus(event, event.key !== "Backspace" ? 1 : -1)}
                onKeyDown={(event) => validation(event)}
                style={{borderBottom: "1px solid #19bfd3"}}/>
