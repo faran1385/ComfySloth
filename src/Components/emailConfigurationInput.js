@@ -14,7 +14,6 @@ export function EmailConfigurationInput(props) {
             //it defines that we must set prev input on focus
         } else if (event.key === 'Backspace') {
             isValid = true
-
             //checking if pressed key was not none of them it's a number
             //it defines that we must set next input on focus
         } else {

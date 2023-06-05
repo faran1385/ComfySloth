@@ -4,7 +4,7 @@ import {useEffect, useState} from "react";
 import axios from "axios";
 
 export function EmailConfirmation() {
-    const [sendNew, setSendNew] = useState(false)
+    const [sendNew, setSendNew] = useState(true)
     //the massage of error that sended from backend
     const [massage, setMassage] = useState({
         condition: false,
@@ -19,10 +19,25 @@ export function EmailConfirmation() {
     useEffect(() => {
         checkKey()
     }, [keyValue])
+    useEffect(() => {
+        sendCode()
+    }, [])
+    async function sendCode() {
+        let res = await axios.post('http://localhost:8000/user/verify-email/', {
+            username: params.username,
+            email: params.email,
+            newCode: sendNew
+        }, {
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        })
+        console.log(res)
+    }
 
     async function checkKey(callByBtn = false) {
         if (validation(Object.values(keyValue))) {
-            console.log('sendRequest')
+            sendCode()
         } else if (callByBtn) {
             setMassage({condition: true, text: "fill all of inputs"})
         }
@@ -97,7 +112,7 @@ export function EmailConfirmation() {
                                        style={{fontWeight: 500, transition: "all ease-in 500ms"}}/>
                                 <p className={'text-center pt-4'}>Do you want a new code? <span
                                     style={{color: "rgb(25, 191, 211)", cursor: 'pointer'}}
-                                    className={""} onClick={()=>setSendNew(true)}>resend </span>
+                                    className={""} onClick={() => setSendNew(true)}>resend </span>
                                 </p>
                             </div>
                         </form>
