@@ -20,24 +20,30 @@ export function EmailConfirmation() {
         checkKey()
     }, [keyValue])
     useEffect(() => {
-        sendCode()
-    }, [])
-    async function sendCode() {
-        let res = await axios.post('http://localhost:8000/user/verify-email/', {
+        sendCode(false)
+    }, [sendNew])
+
+    async function sendCode(code) {
+        let Info = {
             username: params.username,
             email: params.email,
-            newCode: sendNew
-        }, {
+            new_code: sendNew,
+            code: sendNew ? false : code
+        }
+        console.log(Info)
+        let res = await axios.post('http://localhost:8000/user/verify-email/',Info, {
             headers: {
                 'Content-Type': 'application/json'
             }
         })
         console.log(res)
+        setSendNew(false)
     }
 
     async function checkKey(callByBtn = false) {
         if (validation(Object.values(keyValue))) {
-            sendCode()
+            let key = keyValue.one + keyValue.two + keyValue.three + keyValue.four + keyValue.five + keyValue.six
+            sendCode(key)
         } else if (callByBtn) {
             setMassage({condition: true, text: "fill all of inputs"})
         }

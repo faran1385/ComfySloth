@@ -35,7 +35,7 @@ export function Signin() {
                 })
                 navigate(`/emailconfirmation/${username}/${email}`)
             } catch (error) {
-
+                console.log(error)
                 if (error.response.status === 400) {
                     setMassage('This user already exists')
                     setInvalidForm()
