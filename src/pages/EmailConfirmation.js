@@ -13,7 +13,6 @@ export function EmailConfirmation() {
     const params = useParams()
     //its the value of key
     const [emailInfo, setEmailInfo] = useState({
-        sendNew: true,
         one: null,
         two: null,
         three: null,
@@ -27,32 +26,29 @@ export function EmailConfirmation() {
         checkKey()
     }, [emailInfo.one, emailInfo.two, emailInfo.three, emailInfo.four, emailInfo.five, emailInfo.six])
 
-    useEffect(() => {
-        sendCode(false)
-    }, [emailInfo.sendNew])
-
-    async function sendCode(code) {
-        console.log()
+    useEffect(()=>{
+        sendCode(true,false)
+    },[])
+    async function sendCode(isResend, code) {
+        console.log(isResend)
         let Info = {
             username: params.username,
             email: params.email,
-            new_code: emailInfo.sendNew,
-            code: emailInfo.sendNew ? false : code
+            new_code: isResend,
+            code: isResend ? false : code
         }
-        console.log(Info)
         let res = await axios.post('http://localhost:8000/user/verify-email/', Info, {
             headers: {
                 'Content-Type': 'application/json'
             }
         })
-        console.log(res)
-        emailInfo({...emailInfo, sendNew: false})
+        console.log(Info)
     }
 
     async function checkKey(callByBtn = false) {
         if (validation(Object.values(emailInfo))) {
             let key = emailInfo.one + emailInfo.two + emailInfo.three + emailInfo.four + emailInfo.five + emailInfo.six
-            sendCode(key)
+            sendCode(false, key)
         } else if (callByBtn) {
             setMassage({condition: true, text: "fill all of inputs"})
         }
@@ -128,7 +124,7 @@ export function EmailConfirmation() {
                                 <p className={'text-center pt-4'}>Do you want a new code? <span
                                     style={{color: "rgb(25, 191, 211)", cursor: 'pointer'}}
                                     className={""}
-                                    onClick={() => setEmailInfo({...emailInfo, sendNew: true})}>resend </span>
+                                    onClick={async () => sendCode(true, false)}>resend </span>
                                 </p>
                             </div>
                         </form>
