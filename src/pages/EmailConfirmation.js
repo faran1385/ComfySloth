@@ -4,7 +4,6 @@ import {useEffect, useState} from "react";
 import axios from "axios";
 
 export function EmailConfirmation() {
-    const [sendNew, setSendNew] = useState(true)
     //the massage of error that sended from backend
     const [massage, setMassage] = useState({
         condition: false,
@@ -13,36 +12,46 @@ export function EmailConfirmation() {
     //getting url params
     const params = useParams()
     //its the value of key
-    const [keyValue, setKeyValue] = useState({one: null, two: null, three: null, four: null, five: null, six: null})
+    const [emailInfo, setEmailInfo] = useState({
+        sendNew: true,
+        one: null,
+        two: null,
+        three: null,
+        four: null,
+        five: null,
+        six: null
+    })
     //everyTime user enter a number this funcion runs
     //this function well send key to backend
     useEffect(() => {
         checkKey()
-    }, [keyValue])
+    }, [emailInfo.one, emailInfo.two, emailInfo.three, emailInfo.four, emailInfo.five, emailInfo.six])
+
     useEffect(() => {
         sendCode(false)
-    }, [sendNew])
+    }, [emailInfo.sendNew])
 
     async function sendCode(code) {
+        console.log()
         let Info = {
             username: params.username,
             email: params.email,
-            new_code: sendNew,
-            code: sendNew ? false : code
+            new_code: emailInfo.sendNew,
+            code: emailInfo.sendNew ? false : code
         }
         console.log(Info)
-        let res = await axios.post('http://localhost:8000/user/verify-email/',Info, {
+        let res = await axios.post('http://localhost:8000/user/verify-email/', Info, {
             headers: {
                 'Content-Type': 'application/json'
             }
         })
         console.log(res)
-        setSendNew(false)
+        emailInfo({...emailInfo, sendNew: false})
     }
 
     async function checkKey(callByBtn = false) {
-        if (validation(Object.values(keyValue))) {
-            let key = keyValue.one + keyValue.two + keyValue.three + keyValue.four + keyValue.five + keyValue.six
+        if (validation(Object.values(emailInfo))) {
+            let key = emailInfo.one + emailInfo.two + emailInfo.three + emailInfo.four + emailInfo.five + emailInfo.six
             sendCode(key)
         } else if (callByBtn) {
             setMassage({condition: true, text: "fill all of inputs"})
@@ -88,27 +97,27 @@ export function EmailConfirmation() {
                             </div>
                             <div className={"row rounded-2 mt-5"}>
                                 <EmailConfigurationInput setKeyFunc={(number) => {
-                                    setKeyValue({...keyValue, one: number})
+                                    setEmailInfo({...emailInfo, one: number})
                                     setMassage({...massage, condition: false})
                                 }} inputName={"one"}/>
                                 <EmailConfigurationInput setKeyFunc={(number) => {
-                                    setKeyValue({...keyValue, two: number})
+                                    setEmailInfo({...emailInfo, two: number})
                                     setMassage({...massage, condition: false})
                                 }} inputName={"two"}/>
                                 <EmailConfigurationInput setKeyFunc={(number) => {
-                                    setKeyValue({...keyValue, three: number})
+                                    setEmailInfo({...emailInfo, three: number})
                                     setMassage({...massage, condition: false})
                                 }} inputName={"three"}/>
                                 <EmailConfigurationInput setKeyFunc={(number) => {
-                                    setKeyValue({...keyValue, four: number})
+                                    setEmailInfo({...emailInfo, four: number})
                                     setMassage({...massage, condition: false})
                                 }} inputName={"four"}/>
                                 <EmailConfigurationInput setKeyFunc={(number) => {
-                                    setKeyValue({...keyValue, five: number})
+                                    setEmailInfo({...emailInfo, five: number})
                                     setMassage({...massage, condition: false})
                                 }} inputName={"five"}/>
                                 <EmailConfigurationInput setKeyFunc={(number) => {
-                                    setKeyValue({...keyValue, six: number})
+                                    setEmailInfo({...emailInfo, six: number})
                                     setMassage({...massage, condition: false})
                                 }} inputName={"six"}/>
                             </div>
@@ -118,7 +127,8 @@ export function EmailConfirmation() {
                                        style={{fontWeight: 500, transition: "all ease-in 500ms"}}/>
                                 <p className={'text-center pt-4'}>Do you want a new code? <span
                                     style={{color: "rgb(25, 191, 211)", cursor: 'pointer'}}
-                                    className={""} onClick={() => setSendNew(true)}>resend </span>
+                                    className={""}
+                                    onClick={() => setEmailInfo({...emailInfo, sendNew: true})}>resend </span>
                                 </p>
                             </div>
                         </form>
