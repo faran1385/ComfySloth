@@ -30,7 +30,7 @@ export function About() {
         <div className={"container mt-5 mb-5"}>
             <div className={"row pt-5"}>
                 <div className={"col-lg-6 d-none  mb-5 d-lg-flex justify-content-center"}>
-                    <img src={`${base_urlf}${img}`}
+                    <img src={`${base_url}${img}`}
                          style={{width: "-webkit-fill-available", height: "35rem"}}
                          className={"rounded"}/>
                 </div>

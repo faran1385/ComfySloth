@@ -1,6 +1,7 @@
 import {Link, useNavigate, useParams} from "react-router-dom";
 import {EmailConfigurationInput} from "../Components/emailConfigurationInput";
 import {useEffect, useState} from "react";
+import {useGlobalContextAPI} from "../context";
 import axios from "axios";
 
 export function EmailConfirmation() {

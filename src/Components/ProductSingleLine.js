@@ -1,6 +1,8 @@
 import {BiSearchAlt2} from "react-icons/bi";
 import "../index.css"
 import {Link} from "react-router-dom";
+import {useGlobalContextAPI} from "../context";
+
 export function ProductSingleLine(props) {
     const {base_url}=useGlobalContextAPI
     const {active_image, name, price,description,id} = props.productProperties

@@ -1,3 +1,5 @@
+import {useGlobalContextAPI} from "../context";
+
 export function Service(props) {
     const {base_url}=useGlobalContextAPI
     
