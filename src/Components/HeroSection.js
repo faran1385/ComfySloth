@@ -2,6 +2,7 @@ import "../index.css"
 import {useGlobalContextAPI} from "../context";
 
 export function HeroSection() {
+    const {base_url}=useGlobalContextAPI
     //hero section images
     const {siteImages} = useGlobalContextAPI()
     //if hero section image was not load it renders the prload
@@ -60,10 +61,10 @@ export function HeroSection() {
                             <div
                                 className={"hero-section-image position-relative d-none d-lg-flex ps-5 pt-5 justify-content-center"}>
                                 <img style={{width: "15.635rem", height: "10.328125rem", left: "1%"}}
-                                     src={`http://localhost:8000${hero_image_two}`}
+                                     src={`${base_url}${hero_image_two}`}
                                      className={"rounded-2 position-absolute bottom-0 "}/>
                                 <img style={{width: "27.5rem", height: "34.375rem"}}
-                                     src={`http://localhost:8000${hero_image_one}`}
+                                     src={`${base_url}${hero_image_one}`}
                                      className={"rounded-2"}/>
                             </div>
                         </div>

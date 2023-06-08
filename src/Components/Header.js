@@ -9,6 +9,7 @@ import {Offcanvas} from "bootstrap/dist/js/bootstrap.min"
 import {useGlobalContextAPI} from "../context";
 
 export function Header() {
+    const {base_url}=useGlobalContextAPI
     //getting icon of site
     const {siteImages} = useGlobalContextAPI()
     const linkUnderline = useRef('')
@@ -40,7 +41,7 @@ export function Header() {
                 <nav className={"navbar navbar-expand-lg"}>
                     {siteImages ? (<img style={{width: "10rem"}}
                                         className={"navbar-brand"}
-                                        src={`http://localhost:8000${siteImages[0].icon}`}/>) :
+                                        src={`${base_url}${siteImages[0].icon}`}/>) :
                         (<div className={"navbar-brand"} style={{width: "10rem"}}></div>)}
                     <button className="border-0 fs-3 navbar-toggler" type="button" data-bs-toggle="offcanvas"
                             data-bs-target="#offcanvasEnd">

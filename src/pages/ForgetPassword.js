@@ -1,5 +1,3 @@
-import {BiHide, BiShow} from "react-icons/bi";
-import {Link} from "react-router-dom";
 import {useState} from "react";
 
 export function ForgetPassword() {
@@ -21,6 +19,8 @@ export function ForgetPassword() {
         }
     }
 
+    const {base_url} = useGlobalContextAPI
+
     function isValid(inputValue, regex) {
         return regex.test(inputValue)
     }
@@ -31,7 +31,7 @@ export function ForgetPassword() {
                 <div className={"row justify-content-center"}>
                     <div className={"col-4 d-flex justify-content-center"}>
                         <div
-                            className={`toast ${isInvalid.email? "toast-show" : ""} position-absolute`}
+                            className={`toast ${isInvalid.email ? "toast-show" : ""} position-absolute`}
                             style={{top: ".5rem"}}>
                             <div className="toast-body text-center text-danger fw-bold">
                                 There is something wrong with email
@@ -44,7 +44,7 @@ export function ForgetPassword() {
                 <div className={"container pb-5 "}>
                     <div className={"row justify-content-center"}>
                         <form onSubmit={(event) => submitHandler(event)}
-                              action={"http://localhost:8000/user/create-user/"} method={"POST"}
+                              action={`${base_url}/user/create-user/`} method={"POST"}
                               className={"col-lg-4 p-4 col-8 rounded-2 bg-white"}>
                             <div className={"pt-4"}>
                                 <label className={"form-label fs-6"} style={{fontWeight: 400}}>Email</label>

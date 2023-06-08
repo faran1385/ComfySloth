@@ -4,6 +4,8 @@ import {Link, Navigate, useNavigate} from "react-router-dom";
 import axios from "axios";
 
 export function Signin() {
+    const {base_url}=useGlobalContextAPI
+    
     const navigate=useNavigate();
     //the massage of error that sended from backend
     const [massage, setMassage] = useState('There is something wrong with username or password or email')
@@ -24,7 +26,7 @@ export function Signin() {
             setInvalidForm()
         } else {
             try {
-                let res = await axios.post(`http://localhost:8000/user/create-user/`, {
+                let res = await axios.post(`${base_url}/user/create-user/`, {
                     username: username,
                     password: password,
                     email: email

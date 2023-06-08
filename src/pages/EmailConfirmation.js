@@ -1,14 +1,16 @@
-import {Link, useParams} from "react-router-dom";
+import {Link, useNavigate, useParams} from "react-router-dom";
 import {EmailConfigurationInput} from "../Components/emailConfigurationInput";
 import {useEffect, useState} from "react";
 import axios from "axios";
 
 export function EmailConfirmation() {
+    const navigate = useNavigate();
     //the massage of error that sended from backend
     const [massage, setMassage] = useState({
         condition: false,
         text: 'There is something wrong with username or password or email'
     })
+    const {base_url}=useGlobalContextAPI
     //getting url params
     const params = useParams()
     //its the value of key
@@ -25,24 +27,33 @@ export function EmailConfirmation() {
     useEffect(() => {
         checkKey()
     }, [emailInfo.one, emailInfo.two, emailInfo.three, emailInfo.four, emailInfo.five, emailInfo.six])
+    //initial request to backend for creating code
+    useEffect(() => {
+        sendCode(true, false)
+    }, [])
 
-    useEffect(()=>{
-        sendCode(true,false)
-    },[])
     async function sendCode(isResend, code) {
-        console.log(isResend)
-        let Info = {
-            username: params.username,
-            email: params.email,
-            new_code: isResend,
-            code: isResend ? false : code
-        }
-        let res = await axios.post('http://localhost:8000/user/verify-email/', Info, {
-            headers: {
-                'Content-Type': 'application/json'
+        try {
+            let Info = {
+                username: params.username,
+                email: params.email,
+                new_code: isResend,
+                code: isResend ? false : code
             }
-        })
-        console.log(Info)
+            let res = await axios.post(`${base_url}/user/verify-email/`, Info, {
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            })
+            //in this part we check if status were 200 and it wasent a resend request we send the use to the sign in page
+            if (isResend !== true && res.status === 200) {
+                navigate('/login')
+            }
+        } catch (e) {
+            if (e.response.status === 400) {
+                setMassage({condition: true, text: 'code is not valid'})
+            }
+        }
     }
 
     async function checkKey(callByBtn = false) {

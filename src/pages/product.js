@@ -10,6 +10,7 @@ import {BiMinus} from "react-icons/bi";
 import {FaTrash} from "react-icons/fa";
 
 export function Product() {
+    const {base_url} = useGlobalContextAPI
     //product count
     const [productCount, setProductCount] = useState(null)
     const {FetchCaller} = useGlobalContextAPI()
@@ -19,7 +20,7 @@ export function Product() {
     const [product, setProduct] = useState(null)
     //getting product id and setting it on product state
     useEffect(() => {
-        FetchCaller(`http://127.0.0.1:8000/product/api/detail/${params.productId}/`, setProduct)
+        FetchCaller(`${base_url}/product/api/detail/${params.productId}/`, setProduct)
     }, [])
     if (product === null) {
         return <div className={"container pt-5"}>
@@ -101,7 +102,7 @@ export function Product() {
         <div className={"container pt-5"}>
             <div className={"row ms-0"}>
                 <div className={"col-lg-5 ps-0 ps-lg-1  mb-lg-0 mb-4"}>
-                    <img className={"rounded-2 w-100"} src={`http://localhost:8000${active_image}`}
+                    <img className={"rounded-2 w-100"} src={`${base_url}${active_image}`}
                          style={{height: "25rem"}}/>
                 </div>
                 <div className={"col-lg-7  ps-lg-5 ps-0"}>
@@ -162,7 +163,11 @@ export function Product() {
                         <div
                             className={`col-sm-4 ${productCount !== null ? "col-8" : "col-4"} d-flex justify-content-sm-center justify-content-end`}>
                             <small className={`${productCount ? "d-block" : "d-none"}`}>in the <Link to={'/cart'}
-                                className={"text-decoration-none"} style={{color: "#19bfd3", cursor: "pointer"}}>shopping
+                                                                                                     className={"text-decoration-none"}
+                                                                                                     style={{
+                                                                                                         color: "#19bfd3",
+                                                                                                         cursor: "pointer"
+                                                                                                     }}>shopping
                                 cart</Link></small>
                         </div>
                         <div

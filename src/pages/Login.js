@@ -1,8 +1,12 @@
 import {BiHide, BiShow} from "react-icons/bi";
 import {useState} from "react";
-import {Link} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
+import axios from "axios";
 
 export function Login() {
+    const {base_url}=useGlobalContextAPI
+    
+    const navigate = useNavigate();
     //username input state
     const [username, setUsername] = useState("")
     //password input state
@@ -11,13 +15,35 @@ export function Login() {
     const [isInvalid, setInvalid] = useState({username: false, password: false})
 
     //this function runs when you sumbit the form
-    function submitHandler(event) {
+    async function submitHandler(event) {
+        event.preventDefault()
         //testing if inputs are not coordinated with their regex
         if (!isValid(username, /^[a-zA-Z0-9](_(?!(\.|_))|\.(?!(_|\.))|[a-zA-Z0-9]){6,18}[a-zA-Z0-9]$/) || !isValid(password, /^[a-zA-Z0-9!@#$%^&*]{6,16}$/)) {
-            event.preventDefault()
             setUsername("")
             setPassword("")
             setInvalid({username: true, password: true})
+        } else {
+            let Info = {
+                username,
+                password
+            }
+            try {
+                let res = await axios.post(`${base_url}/user/login/`, Info, {
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                })
+                if (res.status === 200) {
+                    document.cookie = `token=${res.data.token}; expires=${new Date().setTime(new Date().getTime() + (10 * 24 * 60 * 60 * 1000))}; path=/`;
+                    document.cookie = `username=${username}; expires=${new Date().setTime(new Date().getTime() + (10 * 24 * 60 * 60 * 1000))}; path=/`;
+                    navigate('/')
+                }
+            } catch (e) {
+                console.log(e)
+                setUsername("")
+                setPassword("")
+                setInvalid({username: true, password: true})
+            }
         }
     }
 
@@ -46,7 +72,6 @@ export function Login() {
                 <div className={"container pb-5"}>
                     <div className={"row justify-content-center"}>
                         <form onSubmit={(event) => submitHandler(event)}
-                              action={"http://localhost:8000/user/login/"} method={"POST"}
                               className={"col-lg-4 col-8 p-4 rounded-2 bg-white"}>
                             <div>
                                 <h2 style={{fontWeight: 400}} className={"text-center"}>Login</h2>
@@ -61,7 +86,8 @@ export function Login() {
                                        name={"username"}/>
                             </div>
                             <div className={"pt-4"}>
-                                <label className={"form-label fs-6"} style={{fontWeight: 400}}>Password <small><Link className={"text-decoration-none"}
+                                <label className={"form-label fs-6"} style={{fontWeight: 400}}>Password <small><Link
+                                    className={"text-decoration-none"}
                                     style={{color: "#19bfd3"}}
                                     to={"/forgetpassword"}>forget?</Link></small></label>
                                 <div className={"position-relative d-flex justify-content-end align-items-center"}

@@ -3,12 +3,13 @@ import axios from "axios";
 import {useFetch} from "./useFetch";
 
 const AppContext = React.createContext();
+let base_url = 'http://localhost:8000'
 
 export function AppProvider({children}) {
     //checking if user has logged in
-    const [isLogin,setLogin]=useState(false)
+    const [isLogin, setLogin] = useState(false)
     //search input infos
-    const [searchInput,setSearchInput]=useState('')
+    const [searchInput, setSearchInput] = useState('')
     //these are filters information
     const [filters, setFilters] = useState({maxprice: 0})
     const [aboutInfo, setAboutInfo] = useState({})
@@ -31,6 +32,7 @@ export function AppProvider({children}) {
         let res = await useFetch(url)
         dispatch(res.data)
     }
+
     //this is for the way the products going to show
     const [isSingleLineLayout, setSingleLineLayout] = useState(false)
 
@@ -69,17 +71,17 @@ export function AppProvider({children}) {
     const [displayedProducts, setDisplayedProducts] = useState(null)
     useEffect(() => {
         //getting site icon and hero section images
-        FetchCaller('http://127.0.0.1:8000/home/api/image-icon/', setSiteImages)
+        FetchCaller(`${base_url}/home/api/image-icon/`, setSiteImages)
         // getting the featured product infos
-        FetchCaller('http://localhost:8000/product/home/api/', setFeaturedProduct)
+        FetchCaller(`${base_url}/product/home/api/`, setFeaturedProduct)
         //getting the custom furniture services
-        FetchCaller('http://localhost:8000/home/api/', setServices)
+        FetchCaller(`${base_url}/home/api/`, setServices)
         //getting filters
-        FetchCaller('http://127.0.0.1:8000/product/filter-item/', setFilters)
+        FetchCaller(`${base_url}/product/filter-item/`, setFilters)
         //getting about page picture and title
-        FetchCaller('http://127.0.0.1:8000/about/api/', setAboutInfo)
+        FetchCaller(`${base_url}/about/api/`, setAboutInfo)
         //getting products
-        FetchCaller('http://127.0.0.1:8000/product/api/', setDisplayedProducts)
+        FetchCaller(`${base_url}/product/api/`, setDisplayedProducts)
     }, [])
     //every time user set a filter the function well runs
     useEffect(() => {
@@ -100,7 +102,7 @@ export function AppProvider({children}) {
 
     //when any filter defines this function runs
     function fetchProduct(price) {
-        let url = `http://127.0.0.1:8000/product/filter/${filteredProduct.category !== "all" ? findId("category", filteredProduct.category) : filteredProduct.category}/${filteredProduct.company !== "all" ? findId("company", filteredProduct.company) : filteredProduct.company}/${filteredProduct.color !== "all" ? findId("color", filteredProduct.color) : filteredProduct.color}/${price}/${filteredProduct.sortBy.slice(filteredProduct.sortBy.indexOf("(") + 1, filteredProduct.sortBy.indexOf("(") + 2)}/${filteredProduct.freeShopping.toString().slice(0, 1)}/${searchInput.trim()===""?"-":searchInput}`
+        let url = `${base_url}/product/filter/${filteredProduct.category !== "all" ? findId("category", filteredProduct.category) : filteredProduct.category}/${filteredProduct.company !== "all" ? findId("company", filteredProduct.company) : filteredProduct.company}/${filteredProduct.color !== "all" ? findId("color", filteredProduct.color) : filteredProduct.color}/${price}/${filteredProduct.sortBy.slice(filteredProduct.sortBy.indexOf("(") + 1, filteredProduct.sortBy.indexOf("(") + 2)}/${filteredProduct.freeShopping.toString().slice(0, 1)}/${searchInput.trim() === "" ? "-" : searchInput}`
         url = url.replaceAll("all", "-")
         FetchCaller(url, setDisplayedProducts)
     }
@@ -126,7 +128,8 @@ export function AppProvider({children}) {
             setSingleLineLayout,
             isSingleLineLayout,
             searchInput,
-            setSearchInput
+            setSearchInput,
+            base_url
         }}>
             {children}
         </AppContext.Provider>

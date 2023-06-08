@@ -1,6 +1,7 @@
 import {useGlobalContextAPI} from "../context";
 
 export function About() {
+    const {base_url}=useGlobalContextAPI
     const {aboutInfo} = useGlobalContextAPI()
     //checking if about infos still not recived.it renders the preloading
     if (!aboutInfo[0]) {
@@ -29,7 +30,7 @@ export function About() {
         <div className={"container mt-5 mb-5"}>
             <div className={"row pt-5"}>
                 <div className={"col-lg-6 d-none  mb-5 d-lg-flex justify-content-center"}>
-                    <img src={`http://localhost:8000${img}`}
+                    <img src={`${base_urlf}${img}`}
                          style={{width: "-webkit-fill-available", height: "35rem"}}
                          className={"rounded"}/>
                 </div>
