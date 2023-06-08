@@ -5,10 +5,12 @@ import {CategoryList} from "./CategoryList";
 import {CompanyList} from "./CompanyList";
 import {ColorList} from "./ColorList";
 import {MaxPrice} from "./MaxPrice";
+import {useRef} from 'react'
 
 export function Filters() {
+    const {freeShopping} = useGlobalContextAPI()
     //getting search input value
-    const {setSearchInput}=useGlobalContextAPI()
+    const {setSearchInput} = useGlobalContextAPI()
     //when user click on clear filter this funcion runs to set filters to initial state
     const {fetchProduct} = useGlobalContextAPI()
     //getting function that change the value of product filters (setActive)
@@ -91,15 +93,19 @@ export function Filters() {
                         </div>
                         <div className={"d-flex justify-content-between p-3"}>
                             <span>Free Shopping</span>
-                            <input onChange={(event) => setActive("freeShopping", event.target.checked)}
+                            <input ref={freeShopping}
+                                   onChange={(event) => {
+                                       console.log('on change')
+                                       setActive("freeShopping", event.target.checked)
+                                   }}
                                    className={"form-check-input"} style={{width: "1rem"}} type={"checkbox"}/>
                         </div>
                         <div className={"d-grid px-3  mt-4"}>
                             <button className={"btn btn-danger"}
                                     onClick={async () => {
                                         await setSearchInput('')
+                                        freeShopping.current.checked = false
                                         await setFilteredProduct(INITIAL_VALUE_OF_FILTERED_PRODUCTS)
-                                        fetchProduct(filters.maxprice)
                                     }}>clear filters
                             </button>
                         </div>

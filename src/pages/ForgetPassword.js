@@ -21,7 +21,7 @@ export function ForgetPassword() {
         }
     }
 
-    const {base_url} = useGlobalContextAPI
+    const {base_url} = useGlobalContextAPI()
 
     function isValid(inputValue, regex) {
         return regex.test(inputValue)

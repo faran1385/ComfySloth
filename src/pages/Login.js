@@ -2,9 +2,9 @@ import {BiHide, BiShow} from "react-icons/bi";
 import {useState} from "react";
 import {Link, useNavigate} from "react-router-dom";
 import axios from "axios";
-
+import {useGlobalContextAPI} from "../context";
 export function Login() {
-    const {base_url}=useGlobalContextAPI
+    const {base_url}=useGlobalContextAPI()
     
     const navigate = useNavigate();
     //username input state

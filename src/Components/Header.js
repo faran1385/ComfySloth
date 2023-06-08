@@ -9,7 +9,7 @@ import {Offcanvas} from "bootstrap/dist/js/bootstrap.min"
 import {useGlobalContextAPI} from "../context";
 
 export function Header() {
-    const {base_url}=useGlobalContextAPI
+    const {base_url}=useGlobalContextAPI()
     //getting icon of site
     const {siteImages} = useGlobalContextAPI()
     const linkUnderline = useRef('')

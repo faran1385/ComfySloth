@@ -4,7 +4,7 @@ import {BiSearchAlt2} from "react-icons/bi"
 import {useState} from "react";
 import {Link} from "react-router-dom";
 export function FeaturedProduct(props){
-    const {base_url}=useGlobalContextAPI
+    const {base_url}=useGlobalContextAPI()
     
     //a condition that define the cols of contaienr
     const {isHome}=props

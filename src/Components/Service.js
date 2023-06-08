@@ -1,7 +1,7 @@
 import {useGlobalContextAPI} from "../context";
 
 export function Service(props) {
-    const {base_url}=useGlobalContextAPI
+    const {base_url}=useGlobalContextAPI()
     
     const {details,title,icon}=props.serviceProperties
     if (!title) {

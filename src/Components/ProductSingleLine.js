@@ -4,7 +4,7 @@ import {Link} from "react-router-dom";
 import {useGlobalContextAPI} from "../context";
 
 export function ProductSingleLine(props) {
-    const {base_url}=useGlobalContextAPI
+    const {base_url}=useGlobalContextAPI()
     const {active_image, name, price,description,id} = props.productProperties
     if (!props.productProperties) {
         return <div className={"ps-5 row d-flex mb-5"}>

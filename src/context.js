@@ -3,9 +3,11 @@ import axios from "axios";
 import {useFetch} from "./useFetch";
 
 const AppContext = React.createContext();
-let base_url = 'http://localhost:8000'
 
 export function AppProvider({children}) {
+    const freeShopping = useRef('')
+
+    const base_url = 'http://localhost:8000'
     //checking if user has logged in
     const [isLogin, setLogin] = useState(false)
     //search input infos
@@ -129,7 +131,8 @@ export function AppProvider({children}) {
             isSingleLineLayout,
             searchInput,
             setSearchInput,
-            base_url
+            base_url,
+            freeShopping
         }}>
             {children}
         </AppContext.Provider>

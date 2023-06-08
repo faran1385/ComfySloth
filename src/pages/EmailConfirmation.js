@@ -11,7 +11,7 @@ export function EmailConfirmation() {
         condition: false,
         text: 'There is something wrong with username or password or email'
     })
-    const {base_url}=useGlobalContextAPI
+    const {base_url}=useGlobalContextAPI()
     //getting url params
     const params = useParams()
     //its the value of key
@@ -130,9 +130,6 @@ export function EmailConfirmation() {
                                 }} inputName={"six"}/>
                             </div>
                             <div className={"pt-5"}>
-                                <input type={"submit"} value={"check"}
-                                       className={"form-control fs-6 shadow-none submit"}
-                                       style={{fontWeight: 500, transition: "all ease-in 500ms"}}/>
                                 <p className={'text-center pt-4'}>Do you want a new code? <span
                                     style={{color: "rgb(25, 191, 211)", cursor: 'pointer'}}
                                     className={""}

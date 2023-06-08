@@ -1,7 +1,7 @@
 import {useGlobalContextAPI} from "../context";
 
 export function ProductImage(props) {
-    const {base_url}=useGlobalContextAPI
+    const {base_url}=useGlobalContextAPI()
     
     const {setProduct, source, product, active_image} = props.productStuff
 

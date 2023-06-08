@@ -2,7 +2,7 @@ import "../index.css"
 import {useGlobalContextAPI} from "../context";
 
 export function HeroSection() {
-    const {base_url}=useGlobalContextAPI
+    const {base_url}=useGlobalContextAPI()
     //hero section images
     const {siteImages} = useGlobalContextAPI()
     //if hero section image was not load it renders the prload

@@ -1,7 +1,7 @@
 import {useGlobalContextAPI} from "../context";
 
 export function About() {
-    const {base_url}=useGlobalContextAPI
+    const {base_url}=useGlobalContextAPI()
     const {aboutInfo} = useGlobalContextAPI()
     //checking if about infos still not recived.it renders the preloading
     if (!aboutInfo[0]) {

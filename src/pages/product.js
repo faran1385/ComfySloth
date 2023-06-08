@@ -10,7 +10,7 @@ import {BiMinus} from "react-icons/bi";
 import {FaTrash} from "react-icons/fa";
 
 export function Product() {
-    const {base_url} = useGlobalContextAPI
+    const {base_url} = useGlobalContextAPI()
     //product count
     const [productCount, setProductCount] = useState(null)
     const {FetchCaller} = useGlobalContextAPI()
