@@ -11,7 +11,8 @@ import {FaTrash} from "react-icons/fa";
 import axios from "axios";
 
 export function Product() {
-    const Token = localStorage.getItem('token')
+    const token = localStorage.getItem('token')
+    const username = localStorage.getItem('username')
     const {base_url} = useGlobalContextAPI()
     //product count
     const [productCount, setProductCount] = useState(null)
@@ -28,9 +29,13 @@ export function Product() {
 
     async function changeProductCount(number) {
         setProductCount(prevState => number === null ? null : prevState + number)
-
+        let requestInfo = {
+            username,
+            token,
+            id: params.productId
+        }
         try {
-            let res = await axios.post(base_url + '/card/add-card', {token: Token}, {
+            let res = await axios.post(base_url + '/card/add-card', requestInfo, {
                 headers: {
                     'Content-Type': 'application/json'
                 }
