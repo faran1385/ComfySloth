@@ -40,12 +40,10 @@ export function ChangePassword() {
                         'Content-Type': 'application/json'
                     }
                 })
-                console.log(res.status)
                 if (res.status === 200) {
                     navigate('/login')
                 }
             } catch (e) {
-                console.log(e)
                 if (e.response.status === 401) {
                     setMassage({condition: true, text: 'something went wrong'})
                     setInvalid({newPassword: true, ConfirmPassword: true})

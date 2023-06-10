@@ -11,6 +11,7 @@ import {Signin} from "./pages/Signin";
 import {EmailConfirmation} from "./pages/EmailConfirmation";
 import {ForgetPassword} from "./pages/ForgetPassword";
 import {ChangePassword} from "./pages/changePassword";
+import {Cart} from "./pages/cart";
 
 function App() {
     return (
@@ -20,7 +21,7 @@ function App() {
                     <Route path={"/"} element={<SharedLayout/>}>
                         <Route index element={<Home/>}/>
                         <Route path={"about"} element={<About/>}/>
-                        <Route path={"cart"}/>
+                        <Route path={"cart"} element={<Cart/>}/>
                         <Route path={"products"} element={<Products/>}/>
                         <Route path={"signin"} element={<Signin/>}/>
                         <Route path={"forgetpassword"} element={<ForgetPassword/>}/>

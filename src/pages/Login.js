@@ -35,8 +35,7 @@ export function Login() {
                     }
                 })
                 if (res.status === 200) {
-                    document.cookie = `token=${res.data.token}; expires=${new Date().setTime(new Date().getTime() + (10 * 24 * 60 * 60 * 1000))}; path=/`;
-                    document.cookie = `username=${username}; expires=${new Date().setTime(new Date().getTime() + (10 * 24 * 60 * 60 * 1000))}; path=/`;
+                    localStorage.setItem('token',res.data.token)
                     navigate('/')
                 }
             } catch (e) {

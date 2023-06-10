@@ -8,8 +8,10 @@ import {BsCheckLg} from "react-icons/bs";
 import {AiOutlinePlus} from "react-icons/ai";
 import {BiMinus} from "react-icons/bi";
 import {FaTrash} from "react-icons/fa";
+import axios from "axios";
 
 export function Product() {
+    const Token = localStorage.getItem('token')
     const {base_url} = useGlobalContextAPI()
     //product count
     const [productCount, setProductCount] = useState(null)
@@ -22,6 +24,23 @@ export function Product() {
     useEffect(() => {
         FetchCaller(`${base_url}/product/api/detail/${params.productId}/`, setProduct)
     }, [])
+
+
+    async function changeProductCount(number) {
+        setProductCount(prevState => number === null ? null : prevState + number)
+
+        try {
+            let res = await axios.post(base_url + '/card/add-card', {token: Token}, {
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            })
+            console.log(res)
+        } catch (e) {
+            console.log(e)
+        }
+    }
+
     if (product === null) {
         return <div className={"container pt-5"}>
             <div className={"row ms-0"}>
@@ -177,19 +196,19 @@ export function Product() {
                                 <button className={"buy-btn btn"} onClick={() => setProductCount(1)}>Add To
                                     Cart</button> : productCount === 1 ? (<>
                                         <FaTrash className={"me-3 user-select-none text-muted"}
-                                                 onClick={() => setProductCount(null)}
+                                                 onClick={() => changeProductCount(null)}
                                                  style={{cursor: "pointer"}}/>
                                         <span className={"fs-5 user-select-none"}>{productCount}</span>
                                         <AiOutlinePlus className={"ms-3 user-select-none"} style={{cursor: "pointer"}}
-                                                       onClick={() => setProductCount(prevState => prevState + 1)}/>
+                                                       onClick={() => changeProductCount(1)}/>
                                     </>)
                                     : (<>
                                         <BiMinus className={"me-3 user-select-none"}
-                                                 onClick={() => setProductCount(prevState => prevState - 1)}
+                                                 onClick={() => changeProductCount(-1)}
                                                  style={{cursor: "pointer"}}/>
                                         <span className={"fs-5 user-select-none"}>{productCount}</span>
                                         <AiOutlinePlus className={"ms-3 user-select-none"} style={{cursor: "pointer"}}
-                                                       onClick={() => setProductCount(prevState => prevState + 1)}/>
+                                                       onClick={() => changeProductCount(1)}/>
                                     </>)}
 
                         </div>
