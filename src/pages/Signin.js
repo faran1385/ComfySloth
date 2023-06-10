@@ -36,7 +36,7 @@ export function Signin() {
                         'Content-Type': 'application/json'
                     }
                 })
-                navigate(`/emailconfirmation/${username}/${email}`)
+                navigate(`/emailconfirmation/${username}/${email}/verify-email`)
             } catch (error) {
                 console.log(error)
                 if (error.response.status === 400) {
@@ -98,20 +98,16 @@ export function Signin() {
                                     <input onKeyPress={() => setInvalid({...isInvalid, password: false})}
                                            value={password}
                                            onChange={(event) => setPassword(event.target.value)}
-                                           autoComplete={"off"} type={"password"} id={"password"}
+                                           autoComplete={"off"} type={passwordShowed ? "text" : "password"} id={"password"}
                                            className={`form-control pe-4 ${isInvalid.password ? "is-invalid  " : ""}`}
                                            name={"password"}/>
 
                                     {passwordShowed === false && isInvalid.password === false ?
                                         <BiShow className={"position-absolute me-2"} onClick={(event) => {
-                                            event.target.parentElement.children[0].type = "text";
-                                            event.target.parentElement.firstChild.blur()
                                             setPasswordShow(true)
                                         }}/> : isInvalid.password === false ?
                                             <BiHide className={"position-absolute me-2"}
                                                     onClick={(event) => {
-                                                        event.target.parentElement.children[0].type = "password";
-                                                        event.target.parentElement.firstChild.blur()
                                                         setPasswordShow(false)
                                                     }}/> : ""}
                                 </div>

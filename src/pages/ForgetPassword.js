@@ -1,27 +1,52 @@
+import {BiHide, BiShow} from "react-icons/bi";
+import {Link} from "react-router-dom";
 import {useState} from "react";
-import {useGlobalContextAPI} from "../context";
-
+import {useGlobalContextAPI} from '../context'
+import axios from "axios";
+import {useNavigate} from "react-router-dom";
 
 export function ForgetPassword() {
-    //username input state
-    const [username, setUsername] = useState("")
-    //password input state
-    const [password, setPassword] = useState("")
+    const navigate = useNavigate();
+    const {base_url} = useGlobalContextAPI()
+
+    const [massage, setMassage] = useState('There is something wrong with email')
     //email input state
     const [email, setEmail] = useState("")
-    const [isInvalid, setInvalid] = useState({email: false})
+    const [isInvalid, setInvalid] = useState(false)
 
     //this function runs when you sumbit the form
-    function submitHandler(event) {
+    async function submitHandler(event) {
+        event.preventDefault()
         //testing if inputs are not coordinated with their regex
         if (!isValid(email, /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/)) {
-            event.preventDefault()
             setEmail("")
             setInvalid({email: true})
+        } else {
+            let emailRequstData = {
+                email,
+                new_code: true,
+                new_password: false,
+                code: false
+            }
+            try {
+                let res = await axios.post(base_url + '/user/forget-password/', emailRequstData, {
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                })
+                console.log(res.status)
+                if (res.status === 201) {
+                    navigate(`/emailconfirmation/false/${email}/forget-password`)
+                }
+            } catch (e) {
+                if (e.response.status === 401) {
+                    setMassage('email does not exist')
+                    setInvalid(true)
+                }
+            }
         }
     }
 
-    const {base_url} = useGlobalContextAPI()
 
     function isValid(inputValue, regex) {
         return regex.test(inputValue)
@@ -33,10 +58,10 @@ export function ForgetPassword() {
                 <div className={"row justify-content-center"}>
                     <div className={"col-4 d-flex justify-content-center"}>
                         <div
-                            className={`toast ${isInvalid.email ? "toast-show" : ""} position-absolute`}
+                            className={`toast ${isInvalid ? "toast-show" : ""} position-absolute`}
                             style={{top: ".5rem"}}>
                             <div className="toast-body text-center text-danger fw-bold">
-                                There is something wrong with email
+                                {massage}
                             </div>
                         </div>
                     </div>
@@ -46,11 +71,11 @@ export function ForgetPassword() {
                 <div className={"container pb-5 "}>
                     <div className={"row justify-content-center"}>
                         <form onSubmit={(event) => submitHandler(event)}
-                              action={`${base_url}/user/create-user/`} method={"POST"}
                               className={"col-lg-4 p-4 col-8 rounded-2 bg-white"}>
                             <div className={"pt-4"}>
                                 <label className={"form-label fs-6"} style={{fontWeight: 400}}>Email</label>
-                                <input onKeyUp={() => setInvalid({...isInvalid, email: false})} value={email}
+                                <input onKeyUp={(event) => event.key !== 'Enter' ? setInvalid(false) : console.log('')}
+                                       value={email}
                                        onChange={(event) => setEmail(event.target.value)}
                                        autoComplete={"off"} type={"email"} id={"email"}
                                        className={`form-control ${isInvalid.email ? "is-invalid    " : ""}`}

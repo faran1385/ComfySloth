@@ -3,9 +3,10 @@ import {useState} from "react";
 import {Link, useNavigate} from "react-router-dom";
 import axios from "axios";
 import {useGlobalContextAPI} from "../context";
+
 export function Login() {
-    const {base_url}=useGlobalContextAPI()
-    
+    const {base_url} = useGlobalContextAPI()
+
     const navigate = useNavigate();
     //username input state
     const [username, setUsername] = useState("")
@@ -94,20 +95,17 @@ export function Login() {
                                      style={{cursor: "pointer"}}>
                                     <input onKeyUp={() => setInvalid({...isInvalid, password: false})} value={password}
                                            onChange={(event) => setPassword(event.target.value)}
-                                           autoComplete={"off"} type={"password"} id={"password"}
+                                           autoComplete={"off"} type={passwordShowed ? "text" : "password"}
+                                           id={"password"}
                                            className={`form-control pe-4 ${isInvalid.password ? "is-invalid  " : ""}`}
                                            name={"password"}/>
 
                                     {!passwordShowed && isInvalid.password !== true ?
                                         <BiShow className={"position-absolute me-2"} onClick={(event) => {
-                                            event.target.parentElement.children[0].type = "text";
-                                            event.target.parentElement.firstChild.blur()
                                             setPasswordShow(true)
                                         }}/> : isInvalid.password !== true ?
                                             <BiHide className={"position-absolute me-2"}
                                                     onClick={(event) => {
-                                                        event.target.parentElement.children[0].type = "password";
-                                                        event.target.parentElement.firstChild.blur()
                                                         setPasswordShow(false)
                                                     }}/> : ""}
                                 </div>

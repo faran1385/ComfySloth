@@ -11,7 +11,7 @@ export function EmailConfirmation() {
         condition: false,
         text: 'There is something wrong with username or password or email'
     })
-    const {base_url}=useGlobalContextAPI()
+    const {base_url} = useGlobalContextAPI()
     //getting url params
     const params = useParams()
     //its the value of key
@@ -35,23 +35,34 @@ export function EmailConfirmation() {
 
     async function sendCode(isResend, code) {
         try {
-            let Info = {
+            let verifyInfo = {
                 username: params.username,
                 email: params.email,
                 new_code: isResend,
                 code: isResend ? false : code
             }
-            let res = await axios.post(`${base_url}/user/verify-email/`, Info, {
+            let forgetPasswordInfo = {
+                email: params.email,
+                new_code: isResend,
+                new_password: false,
+                code: isResend ? false : code
+            }
+
+            let res = await axios.post(`${base_url}/user/${params.page}/`, params.page !== 'forget-password' ? verifyInfo : forgetPasswordInfo, {
                 headers: {
                     'Content-Type': 'application/json'
                 }
             })
             //in this part we check if status were 200 and it wasent a resend request we send the use to the sign in page
-            if (isResend !== true && res.status === 200) {
-                navigate('/login')
+            if (isResend !== true && (res.status === 201 || res.status === 200)) {
+                if (params.page === 'forget-password') {
+                    navigate(`/changepassword/${params.email}`)
+                } else {
+                    navigate('/login')
+                }
             }
         } catch (e) {
-            if (e.response.status === 400) {
+            if (e.response.status === 403 || e.response.status === 401) {
                 setMassage({condition: true, text: 'code is not valid'})
             }
         }

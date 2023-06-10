@@ -6,20 +6,11 @@
   <component name="ChangeListManager">
     <list default="true" id="043894e5-3b31-44b9-96b0-4b077462bf40" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/FeaturedProduct.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/FeaturedProduct.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/Header.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Header.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/HeroSection.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/HeroSection.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/ProductSingleLine.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/ProductSingleLine.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/Service.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Service.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/filters.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/filters.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/productImage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/productImage.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/context.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/context.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/About.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/About.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/EmailConfirmation.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/EmailConfirmation.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/EmailConfirmed.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/ForgetPassword.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/ForgetPassword.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/Login.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Login.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/Signin.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Signin.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/product.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/product.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -62,7 +53,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1686219694096</updated>
-      <workItem from="1686219698554" duration="6335000" />
+      <workItem from="1686219698554" duration="11685000" />
     </task>
     <servers />
   </component>
