@@ -9,15 +9,12 @@ import {AiOutlinePlus} from "react-icons/ai";
 import {BiMinus} from "react-icons/bi";
 import {FaTrash} from "react-icons/fa";
 import axios from "axios";
+import {AddToCartBtn} from "../Components/addToCartBtn";
 
 export function Product() {
-    const token = localStorage.getItem('token')
-    const username = localStorage.getItem('username')
-    const [loading, setLoading] = useState(false)
+    const [productCount, setProductCount] = useState(null)
     const {base_url} = useGlobalContextAPI()
     //product count
-    const [productCount, setProductCount] = useState(null)
-    const [maxCount, setMaxCount] = useState(null)
     const {FetchCaller} = useGlobalContextAPI()
     //getting product id by url parameters
     const params = useParams()
@@ -27,31 +24,6 @@ export function Product() {
     useEffect(() => {
         FetchCaller(`${base_url}/product/api/detail/${params.productId}/`, setProduct)
     }, [])
-
-
-    async function changeProductCount(number) {
-        setLoading(true)
-        setProductCount(prevState => number === null ? null : prevState + number)
-        let requestInfo = {
-            username,
-            token,
-            id: params.productId,
-            count: !productCount ? 0 : productCount
-        }
-        try {
-            let res = await axios.post(base_url + '/card/add-card/', requestInfo, {
-                headers: {
-                    'Content-Type': 'application/json'
-                }
-            })
-            if (res.status === 200) {
-                setMaxCount(res.data.max_count)
-            }
-        } catch (e) {
-            console.log(e)
-        }
-        setLoading(false)
-    }
 
     if (product === null) {
         return <div className={"container pt-5"}>
@@ -203,70 +175,7 @@ export function Product() {
                         </div>
                         <div
                             className={`col-sm-4 mt-sm-0 d-flex justify-content-sm-end justify-content-center ${productCount !== null ? "mt-4 col-12 " : "mt-0 col-4"} align-items-center `}>
-
-                            {maxCount === 0 ? <p style={{fontWeight:500}} className={"text-danger text-center"}>this product does not exist any
-                                more</p> : productCount === null ?
-                                <button className={"buy-btn btn"} style={{width: "7rem"}}
-                                        onClick={() => changeProductCount(1)}>
-                                    {loading ? (
-                                        <svg className={'text-dark fs-1'} xmlns="http://www.w3.org/2000/svg" width="24"
-                                             height="24"
-                                             viewBox="0 0 24 24">
-                                            <circle cx="18" cy="12" r="0" fill="currentColor">
-                                                <animate attributeName="r" begin=".67" calcMode="spline" dur="1.5s"
-                                                         keySplines="0.2 0.2 0.4 0.8;0.2 0.2 0.4 0.8;0.2 0.2 0.4 0.8"
-                                                         repeatCount="indefinite" values="0;2;0;0"/>
-                                            </circle>
-                                            <circle cx="12" cy="12" r="0" fill="currentColor">
-                                                <animate attributeName="r" begin=".33" calcMode="spline" dur="1.5s"
-                                                         keySplines="0.2 0.2 0.4 0.8;0.2 0.2 0.4 0.8;0.2 0.2 0.4 0.8"
-                                                         repeatCount="indefinite" values="0;2;0;0"/>
-                                            </circle>
-                                            <circle cx="6" cy="12" r="0" fill="currentColor">
-                                                <animate attributeName="r" begin="0" calcMode="spline" dur="1.5s"
-                                                         keySplines="0.2 0.2 0.4 0.8;0.2 0.2 0.4 0.8;0.2 0.2 0.4 0.8"
-                                                         repeatCount="indefinite" values="0;2;0;0"/>
-                                            </circle>
-                                        </svg>) : "Add To Cart"}
-                                </button> : productCount === 1 ? (<>
-                                        <FaTrash className={"me-3 user-select-none text-muted"}
-                                                 onClick={() => changeProductCount(null)}
-                                                 style={{cursor: "pointer"}}/>
-                                        <span className={"fs-5 user-select-none"}>{productCount}</span>
-                                        <AiOutlinePlus className={"ms-3 user-select-none"} style={{cursor: "pointer"}}
-                                                       onClick={() => maxCount !== productCount ? changeProductCount(1) : ""}/>
-                                    </>)
-                                    : (<>
-                                        <BiMinus className={"me-3 user-select-none"}
-                                                 onClick={() => changeProductCount(-1)}
-                                                 style={{cursor: "pointer"}}/>
-                                        <span className={"fs-5 user-select-none"}>{loading ? (
-                                            <svg className={'text-dark fs-1'} xmlns="http://www.w3.org/2000/svg"
-                                                 width="24"
-                                                 height="24"
-                                                 viewBox="0 0 24 24">
-                                                <circle cx="18" cy="12" r="0" fill="currentColor">
-                                                    <animate attributeName="r" begin=".67" calcMode="spline" dur="1.5s"
-                                                             keySplines="0.2 0.2 0.4 0.8;0.2 0.2 0.4 0.8;0.2 0.2 0.4 0.8"
-                                                             repeatCount="indefinite" values="0;2;0;0"/>
-                                                </circle>
-                                                <circle cx="12" cy="12" r="0" fill="currentColor">
-                                                    <animate attributeName="r" begin=".33" calcMode="spline" dur="1.5s"
-                                                             keySplines="0.2 0.2 0.4 0.8;0.2 0.2 0.4 0.8;0.2 0.2 0.4 0.8"
-                                                             repeatCount="indefinite" values="0;2;0;0"/>
-                                                </circle>
-                                                <circle cx="6" cy="12" r="0" fill="currentColor">
-                                                    <animate attributeName="r" begin="0" calcMode="spline" dur="1.5s"
-                                                             keySplines="0.2 0.2 0.4 0.8;0.2 0.2 0.4 0.8;0.2 0.2 0.4 0.8"
-                                                             repeatCount="indefinite" values="0;2;0;0"/>
-                                                </circle>
-                                            </svg>) : productCount > maxCount ? maxCount : productCount}</span>
-                                        <AiOutlinePlus
-                                            className={`ms-3 user-select-none ${maxCount === productCount ? "opacity-50" : "opacity-100"}`}
-                                            style={{cursor: "pointer"}}
-                                            onClick={() => maxCount !== productCount ? changeProductCount(1) : ""}/>
-                                    </>)}
-
+                            <AddToCartBtn productCount={productCount} setProductCount={setProductCount}/>
                         </div>
                     </div>
                 </div>

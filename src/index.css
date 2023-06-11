@@ -213,10 +213,19 @@
     10% {
         opacity: 1;
     }
-    90%{
+    90% {
         opacity: 1;
     }
     100% {
         opacity: 0;
     }
+}
+
+.user-basket-product {
+    transition: all ease-in .2s;
+}
+
+.user-basket-product:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 1rem 3rem rgba(0, 0, 0, .175) !important
 }

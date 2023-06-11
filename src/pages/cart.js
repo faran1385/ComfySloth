@@ -1,6 +1,7 @@
 import {useEffect} from "react";
 import axios from "axios";
 import {useGlobalContextAPI} from "../context";
+import {UserBasketProduct} from "../Components/userBasketProduct";
 
 let token = localStorage.getItem('token')
 let username = localStorage.getItem('username')
@@ -25,8 +26,13 @@ export function Cart() {
         fetchData()
     }, [])
     return (
-        <>
-
-        </>
+        <div className={'container my-5'}>
+            <div className={"row"}>
+                <UserBasketProduct/>
+                <UserBasketProduct/>
+                <UserBasketProduct/>
+                <UserBasketProduct/>
+            </div>
+        </div>
     );
 }
