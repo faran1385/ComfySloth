@@ -14,7 +14,6 @@ export function StarList(props) {
     function setStar(number) {
         score -= number
         if (score >= 2) {
-            console.log(score >= 2)
             return <BsStarFill style={{color: "rgb(255, 185, 0)"}}/>
         } else if (score === 1) {
             return <BsStarHalf style={{color: "rgb(255, 185, 0)"}}/>

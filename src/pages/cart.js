@@ -28,10 +28,12 @@ export function Cart() {
     return (
         <div className={'container my-5'}>
             <div className={"row"}>
-                <UserBasketProduct/>
-                <UserBasketProduct/>
-                <UserBasketProduct/>
-                <UserBasketProduct/>
+                <div className={"col-sm-9 col-12"}>
+                    <UserBasketProduct/>
+                    <UserBasketProduct/>
+                    <UserBasketProduct/>
+                    <UserBasketProduct/>
+                </div>
             </div>
         </div>
     );
