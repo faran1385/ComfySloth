@@ -1,14 +1,14 @@
-import {useEffect} from "react";
+import {useEffect, useState} from "react";
 import axios from "axios";
 import {useGlobalContextAPI} from "../context";
 import {UserBasketProduct} from "../Components/userBasketProduct";
 import "../dist/css/App.css"
-import {GiBasket} from "react-icons/gi"
 
 let token = localStorage.getItem('token')
 let username = localStorage.getItem('username')
 
 export function Cart() {
+    const [basketProducts, setBasketProducts] = useState([])
     const {base_url} = useGlobalContextAPI()
     let requestInfo = {
         token,
@@ -16,12 +16,18 @@ export function Cart() {
     }
 
     async function fetchData() {
-        let res = await axios.post(base_url + '/card/get-card/', requestInfo, {
-            headers: {
-                'Content-Type': "application-json"
+        try {
+            let res = await axios.post(base_url + '/card/get-card/', requestInfo, {
+                headers: {
+                    'Content-Type': "application/json"
+                }
+            })
+            if (res.status === 200) {
+                setBasketProducts(res.data)
             }
-        })
-        console.log(res)
+        } catch (e) {
+            console.log(e)
+        }
     }
 
     useEffect(() => {
@@ -32,10 +38,9 @@ export function Cart() {
             <div className={'container my-5'}>
                 <div className={"row"}>
                     <div className={"col-lg-8 col-12"}>
-                        <UserBasketProduct/>
-                        <UserBasketProduct/>
-                        <UserBasketProduct/>
-                        <UserBasketProduct/>
+                        {basketProducts.map((product,index) => {
+                            return <UserBasketProduct productProps={product} key={product.id}/>
+                        })}
                     </div>
                     <div className="col-lg-4 col-12">
                         <div

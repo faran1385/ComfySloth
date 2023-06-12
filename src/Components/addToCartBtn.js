@@ -2,7 +2,7 @@ import {FaTrash} from "react-icons/fa";
 import {AiOutlinePlus} from "react-icons/ai";
 import {BiMinus} from "react-icons/bi";
 import axios from "axios";
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import {useParams} from "react-router-dom";
 import {useGlobalContextAPI} from "../context";
 
@@ -17,35 +17,41 @@ export function AddToCartBtn(props) {
     const [loading, setLoading] = useState(false)
 
     async function changeProductCount(number) {
-        setLoading(true)
-        setProductCount(prevState => number === null ? null : prevState + number)
-        let requestInfo = {
-            username,
-            token,
-            id: params.productId,
-            count: !productCount ? 0 : productCount
-        }
-        try {
-            let res = await axios.post(base_url + '/card/add-card/', requestInfo, {
-                headers: {
-                    'Content-Type': 'application/json'
-                }
-            })
-            if (res.status === 200) {
-                setMaxCount(res.data.max_count)
+        if (productCount) {
+            setLoading(true)
+            console.log(productCount)
+            let requestInfo = {
+                username,
+                token,
+                id: params.productId,
+                count: productCount
             }
-        } catch (e) {
-            console.log(e)
+            try {
+                let res = await axios.post(base_url + '/card/add-card/', requestInfo, {
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                })
+                if (res.status === 200) {
+                    setMaxCount(res.data.max_count)
+                }
+            } catch (e) {
+                console.log(e)
+            }
+            setLoading(false)
         }
-        setLoading(false)
     }
+
+    useEffect(() => {
+        changeProductCount()
+    }, [productCount])
 
     return (<div className={'d-flex align-items-baseline'}>
         {maxCount === 0 ?
             <p style={{fontWeight: 500}} className={"text-danger text-center"}>this product does not exist any
                 more</p> : productCount === null ?
                 <button className={"buy-btn btn "} style={{width: "7rem"}}
-                        onClick={() => changeProductCount(1)}>
+                        onClick={() => setProductCount(1)}>
                     {loading ? (
                         <svg className={'text-dark fs-1'} xmlns="http://www.w3.org/2000/svg" width="24"
                              height="24"
@@ -68,15 +74,15 @@ export function AddToCartBtn(props) {
                         </svg>) : "Add To Cart"}
                 </button> : productCount === 1 ? (<>
                         <FaTrash className={"me-3 user-select-none text-muted"}
-                                 onClick={() => changeProductCount(null)}
+                                 onClick={() => setProductCount(null)}
                                  style={{cursor: "pointer"}}/>
                         <span className={"fs-5 user-select-none"}>{productCount}</span>
                         <AiOutlinePlus className={"ms-3 user-select-none"} style={{cursor: "pointer"}}
-                                       onClick={() => maxCount !== productCount ? changeProductCount(1) : ""}/>
+                                       onClick={() => maxCount !== productCount ? setProductCount(prevState => prevState + 1) : ""}/>
                     </>)
                     : (<>
                         <BiMinus className={"me-3 user-select-none"}
-                                 onClick={() => changeProductCount(-1)}
+                                 onClick={() => setProductCount(prevState => prevState - 1)}
                                  style={{cursor: "pointer"}}/>
                         <span className={"fs-5 user-select-none"}>{loading ? (
                             <svg className={'text-dark fs-1'} xmlns="http://www.w3.org/2000/svg"
@@ -102,7 +108,7 @@ export function AddToCartBtn(props) {
                         <AiOutlinePlus
                             className={`ms-3 user-select-none ${maxCount === productCount ? "opacity-50" : "opacity-100"}`}
                             style={{cursor: "pointer"}}
-                            onClick={() => maxCount !== productCount ? changeProductCount(1) : ""}/>
+                            onClick={() => maxCount !== productCount ? setProductCount(prevState => prevState + 1) : ""}/>
                     </>)}
     </div>);
 }
