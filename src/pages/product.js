@@ -1,17 +1,14 @@
-import {Link, useFetcher, useParams} from "react-router-dom";
+import {Link, useParams} from "react-router-dom";
 import {useEffect, useState} from "react";
-import {useFetch} from "../useFetch";
 import {useGlobalContextAPI} from "../context";
 import {StarList} from "../Components/StarList";
 import {ProductImageList} from "../Components/productImageList";
 import {BsCheckLg} from "react-icons/bs";
-import {AiOutlinePlus} from "react-icons/ai";
-import {BiMinus} from "react-icons/bi";
-import {FaTrash} from "react-icons/fa";
 import axios from "axios";
 import {AddToCartBtn} from "../Components/addToCartBtn";
 
 export function Product() {
+    const {token, username} = useGlobalContextAPI()
     const [productCount, setProductCount] = useState(null)
     const {base_url} = useGlobalContextAPI()
     //product count
@@ -24,6 +21,31 @@ export function Product() {
     useEffect(() => {
         FetchCaller(`${base_url}/product/api/detail/${params.productId}/`, setProduct)
     }, [])
+
+    useEffect(() => {
+        // this function gets the count of product
+        getCount()
+    }, [])
+
+    async function getCount() {
+        let requestInfo = {
+            username,
+            token,
+            id: params.productId
+        }
+        try {
+            let res = await axios.post(base_url + '/card/card-available/', requestInfo, {
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            })
+            if (res.status === 200) {
+                setProductCount(res.data.count)
+            }
+        } catch (e) {
+
+        }
+    }
 
     if (product === null) {
         return <div className={"container pt-5"}>

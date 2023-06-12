@@ -3,6 +3,8 @@ import axios from "axios";
 import {useFetch} from "./useFetch";
 
 const AppContext = React.createContext();
+let token = localStorage.getItem('token')
+let username = localStorage.getItem('username')
 
 export function AppProvider({children}) {
     const freeShopping = useRef('')
@@ -132,7 +134,9 @@ export function AppProvider({children}) {
             searchInput,
             setSearchInput,
             base_url,
-            freeShopping
+            freeShopping,
+            token,
+            username
         }}>
             {children}
         </AppContext.Provider>

@@ -4,10 +4,8 @@ import {useGlobalContextAPI} from "../context";
 import {UserBasketProduct} from "../Components/userBasketProduct";
 import "../dist/css/App.css"
 
-let token = localStorage.getItem('token')
-let username = localStorage.getItem('username')
-
 export function Cart() {
+    const {token, username} = useGlobalContextAPI()
     const [basketProducts, setBasketProducts] = useState([])
     const {base_url} = useGlobalContextAPI()
     let requestInfo = {
@@ -38,7 +36,7 @@ export function Cart() {
             <div className={'container my-5'}>
                 <div className={"row"}>
                     <div className={"col-lg-8 col-12"}>
-                        {basketProducts.map((product,index) => {
+                        {basketProducts.map((product, index) => {
                             return <UserBasketProduct productProps={product} key={product.id}/>
                         })}
                     </div>
