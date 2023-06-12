@@ -12,7 +12,7 @@ import {EmailConfirmation} from "./pages/EmailConfirmation";
 import {ForgetPassword} from "./pages/ForgetPassword";
 import {ChangePassword} from "./pages/changePassword";
 import {Cart} from "./pages/cart";
-
+import "./dist/css/App.css"
 function App() {
     return (
         <BrowserRouter>

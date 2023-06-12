@@ -7,7 +7,6 @@ import "../index.css"
 import {useRef, useState} from "react";
 import {Offcanvas} from "bootstrap/dist/js/bootstrap.min"
 import {useGlobalContextAPI} from "../context";
-
 export function Header() {
     const {base_url}=useGlobalContextAPI()
     //getting icon of site
