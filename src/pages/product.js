@@ -36,7 +36,7 @@ export function Product() {
         try {
             let res = await axios.post(base_url + '/card/card-available/', requestInfo, {
                 headers: {
-                    'Content-Type': 'application/json'
+                    'Content-Type': "application/json"
                 }
             })
             if (res.status === 200) {
