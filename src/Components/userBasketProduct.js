@@ -8,8 +8,9 @@ import {useGlobalContextAPI} from "../context";
 export function UserBasketProduct(props) {
     const {base_url}=useGlobalContextAPI()
     const {count} = props.productProps
-    const {sku, color, company, name, score, available, price,active_image} = props.productProps.product
-    console.log(props.productProps)
+    const {setBasketProducts} = props
+    const {productBasket} = props
+    const {sku, color, company, name, score, available, price,active_image,id} = props.productProps.product
     const [productCount, setProductCount] = useState(count)
     return (<>
         <div className={'col-12 p-3 rounded-2'}>
@@ -93,7 +94,7 @@ export function UserBasketProduct(props) {
                                         <p style={{color: "rgb(171, 122, 95)", fontWeight: 600}}>$2,000,000</p>
                                     </div>
                                     <div className={"col-6 d-flex  justify-content-end"}>
-                                        <AddToCartBtn productCount={productCount} setProductCount={setProductCount}/>
+                                        <AddToCartBtn setBasketProducts={setBasketProducts} productBasket={productBasket} productId={id} productCount={productCount} setProductCount={setProductCount}/>
                                     </div>
                                 </div>
                             </div>

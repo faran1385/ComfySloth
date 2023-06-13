@@ -40,10 +40,11 @@ export function Product() {
                 }
             })
             if (res.status === 200) {
-                setProductCount(res.data.count)
+                await setProductCount(res.data.count)
+                console.log(res)
             }
         } catch (e) {
-
+            console.log(e)
         }
     }
 
@@ -148,7 +149,7 @@ export function Product() {
                             <p className={"p-0 m-0"} style={{fontWeight: 500}}>Available :</p>
                         </div>
                         <div className={"col-sm-9"}>
-                            <p className={"m-0 text-muted"}
+                            <p className={`m-0 ${available ? "text-success" : "text-danger"}`}
                                style={{fontWeight: 500}}>{available ? "In Stock" : "Out Of Stock"}</p>
                         </div>
                     </div>
@@ -186,7 +187,7 @@ export function Product() {
                             <span className={"fs-4"}>${Number(price).toLocaleString()}</span>
                         </div>
                         <div
-                            className={`col-sm-4 ${productCount !== null ? "col-8" : "col-4"} d-flex justify-content-sm-center justify-content-end`}>
+                            className={`col-sm-4 ${productCount !== 0 ? "col-8" : "col-4"} d-flex justify-content-sm-center justify-content-end`}>
                             <small className={`${productCount ? "d-block" : "d-none"}`}>in the <Link to={'/cart'}
                                                                                                      className={"text-decoration-none"}
                                                                                                      style={{
@@ -197,7 +198,8 @@ export function Product() {
                         </div>
                         <div
                             className={`col-sm-4 mt-sm-0 d-flex justify-content-sm-end justify-content-center ${productCount !== null ? "mt-4 col-12 " : "mt-0 col-4"} align-items-center `}>
-                            <AddToCartBtn productCount={productCount} setProductCount={setProductCount}/>
+                            {available ?
+                                <AddToCartBtn productCount={productCount} setProductCount={setProductCount}/> : ""}
                         </div>
                     </div>
                 </div>

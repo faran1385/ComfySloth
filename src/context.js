@@ -8,7 +8,6 @@ let username = localStorage.getItem('username')
 
 export function AppProvider({children}) {
     const freeShopping = useRef('')
-
     const base_url = 'http://localhost:8000'
     //checking if user has logged in
     const [isLogin, setLogin] = useState(false)

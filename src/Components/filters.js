@@ -1,6 +1,6 @@
 import {useGlobalContextAPI} from "../context";
 import {BsCheckLg} from "react-icons/bs"
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import {CategoryList} from "./CategoryList";
 import {CompanyList} from "./CompanyList";
 import {ColorList} from "./ColorList";
@@ -8,14 +8,18 @@ import {MaxPrice} from "./MaxPrice";
 import {useRef} from 'react'
 
 export function Filters() {
+    const {base_url,setDisplayedProducts} = useGlobalContextAPI()
     const {freeShopping} = useGlobalContextAPI()
     //getting search input value
     const {setSearchInput} = useGlobalContextAPI()
     //when user click on clear filter this funcion runs to set filters to initial state
-    const {fetchProduct} = useGlobalContextAPI()
+    const {FetchCaller} = useGlobalContextAPI()
     //getting function that change the value of product filters (setActive)
     //setFilteredProduct is for clear all filters that INITIAL_VALUE_OF_FILTERED_PRODUCTS is its argument
     const {filters, setActive, INITIAL_VALUE_OF_FILTERED_PRODUCTS, setFilteredProduct} = useGlobalContextAPI()
+    useEffect(() => {
+        FetchCaller(`${base_url}/product/api/`, setDisplayedProducts)
+    }, [])
     //these are for filter section
     const {category, color, company, maxprice, lowprice} = filters
     return (<div className={"col-lg-3"}>
@@ -95,7 +99,6 @@ export function Filters() {
                             <span>Free Shopping</span>
                             <input ref={freeShopping}
                                    onChange={(event) => {
-                                       console.log('on change')
                                        setActive("freeShopping", event.target.checked)
                                    }}
                                    className={"form-check-input"} style={{width: "1rem"}} type={"checkbox"}/>

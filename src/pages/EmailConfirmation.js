@@ -62,7 +62,7 @@ export function EmailConfirmation() {
                 }
             }
         } catch (e) {
-            if (e.response.status === 403 || e.response.status === 401) {
+            if (e.response.status === 403 || e.response.status === 401||e.response.status === 400) {
                 setMassage({condition: true, text: 'code is not valid'})
             }
         }
