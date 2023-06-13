@@ -91,7 +91,7 @@ export function UserBasketProduct(props) {
                             <div className={"col-12 mt-3"}>
                                 <div className={"row align-items-baseline"}>
                                     <div className={"col-6"}>
-                                        <p style={{color: "rgb(171, 122, 95)", fontWeight: 600}}>$2,000,000</p>
+                                        <p style={{color: "rgb(171, 122, 95)", fontWeight: 600}}>${Number(productCount*price).toFixed(2).toLocaleString()}</p>
                                     </div>
                                     <div className={"col-6 d-flex  justify-content-end"}>
                                         <AddToCartBtn setBasketProducts={setBasketProducts} productBasket={productBasket} productId={id} productCount={productCount} setProductCount={setProductCount}/>

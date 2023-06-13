@@ -62,7 +62,7 @@ export function Cart() {
                             className="flex-column border rounded-2 position-sticky shadow-lg top-0 my-lg-3 my-0 p-3">
                             <div className={"d-flex mb-2 justify-content-between align-items-baseline"}>
                                 <h5 style={{fontWeight: 400}}>total price:</h5>
-                                <small style={{fontWeight: 400}}>{totalPrice.toLocaleString()}</small>
+                                <small style={{fontWeight: 400}}>${totalPrice.toLocaleString()}</small>
                             </div>
                             {basketProducts.map((product, index) => {
                                 return <div key={index}

@@ -34,12 +34,20 @@ export function AddToCartBtn(props) {
             })
             if (res.status === 200) {
                 setMaxCount(res.data.max_count)
+                let newBasket = productBasket.map(product => {
+                    console.log(product,props.productId)
+                    if (product.product.id === props.productId) {
+                        return {...product, count: productCount}
+                    } else {
+                        return product
+                    }
+                })
+                setBasketProducts(newBasket)
             }
         } catch (e) {
             console.log(e)
         }
         setLoading(false)
-
     }
 
     useEffect(() => {
@@ -47,10 +55,10 @@ export function AddToCartBtn(props) {
     }, [productCount])
 
     function changeBasket() {
-        if(productBasket){
+        if (productBasket) {
 
             let newBasket = productBasket.filter(product => {
-                console.log(product.id,props.productId)
+                console.log(product.id, props.productId)
                 if (product.product.id !== props.productId) {
                     return product
                 }
@@ -59,6 +67,7 @@ export function AddToCartBtn(props) {
         }
     }
 
+    //this function changes the product count in the basket
     return (<div className={'d-flex align-items-baseline'}>
         {maxCount === 0 ?
             <p style={{fontWeight: 500}} className={"text-danger text-center"}>this product does not exist any
